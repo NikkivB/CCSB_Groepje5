@@ -14,7 +14,7 @@ namespace CCSB_Groepje5.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Login()
         {
             return View();
         }
