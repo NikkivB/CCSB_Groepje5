@@ -50,6 +50,12 @@ namespace CCSB_Groepje5.Controllers
             }
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> LogOff()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
