@@ -18,5 +18,9 @@ namespace CCSB_Groepje5.Controllers
         {
             return View();
         }
+        public IActionResult Register()
+        {
+            return View();
+        }
     }
 }
