@@ -1,4 +1,17 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<Microsoft.AspNetCore.Identity.IdentityUser> signinManager
+
+@if (signinManager.IsSignedIn(User))
+{ }
+else
+{
+<ul class-"nav navbar-nav">
+    <li>
+        @Html.ActionLink("Registreer", "Register", "Account", routeValues: null,
+        htmlAttributes: new { id = "registerLink" })
+    </li>
+    <li>
+        @Html.ActionLink("Login", "Login", "Account", routeValues: null,
+        htmlAttributes: new { id = "loginLink" })
+    </li>
+</ul>
+}
