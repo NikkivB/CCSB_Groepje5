@@ -15,10 +15,10 @@ namespace CCSB_Groepje5.Controllers
         private readonly ApplicationDbContext _db;
         UserManager<ApplicationUser> _userManager;
         SignInManager<ApplicationUser> _signInManager;
-        RoleManager<ApplicationUser> _roleManager;
+        RoleManager<IdentityRole> _roleManager;
         public AccountController(ApplicationDbContext db,
             UserManager<ApplicationUser> userManager,
-            RoleManager<ApplicationUser> roleManager,
+            RoleManager<IdentityRole> roleManager,
             SignInManager<ApplicationUser> signInManager)
         {
             _db = db;
