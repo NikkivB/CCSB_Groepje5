@@ -19,6 +19,6 @@ namespace CCSB_Groepje5.Models.ViewModels
         public string Password { get; set; }
 
         [Display(Name = "Onthoud mij")]
-        public string RememberMe { get; set; }
+        public bool RememberMe { get; set; }
     }
 }
