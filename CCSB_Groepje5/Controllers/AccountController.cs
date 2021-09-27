@@ -1,5 +1,6 @@
 ﻿using CCSB_Groepje5.Models;
 using CCSB_Groepje5.Models.ViewModels;
+using CCSB_Groepje5.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -29,6 +30,17 @@ namespace CCSB_Groepje5.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> Register()
+        {
+            if (!_roleManager.RoleExistsAsync(Helper.Admin).GetAwaiter().GetResult())
+            {
+                await _roleManager.CreateAsync(new IdentityRole(Helper.Admin));
+                await _roleManager.CreateAsync(new IdentityRole(Helper.Klant));
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult>Register(RegisterViewModel model)
@@ -57,5 +69,16 @@ namespace CCSB_Groepje5.Controllers
             }
             return View();
         }
+
+        //public async Task<IActionResult> Register()
+        //{
+        //    if (!_roleManager.RoleExistsAsync(IUrlHelper.Admin).GetAwaiter().GetResult())
+        //    {
+        //        await _roleManager.CreateAsync(new IdentityRole(IUrlHelper.Admin));
+        //        await _roleManager.CreateAsync(new IdentityRole(IUrlHelper.klant));
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    return View();
+        //}
     }
 }
