@@ -4,6 +4,7 @@
 { }
 else
 {
+    <form method="post" id="logoutform" asp-action="Logoff" app-controller="Account">
 <ul class-"nav navbar-nav">
     <li>
         @*@Html.ActionLink("Registreer", "Register", "Account", routeValues: null,
@@ -17,4 +18,5 @@ else
 
     </li>
 </ul>
+    </form>
 }
