@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CCSB_Groepje5.Models
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
