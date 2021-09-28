@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CCSB_Groepje5.Services
 {
-    public class IAppointmentService
+    interface IAppointmentService
     {
     }
 }
