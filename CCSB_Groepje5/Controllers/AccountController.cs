@@ -34,7 +34,7 @@ namespace CCSB_Groepje5.Controllers
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Home");
-
+                    
                 }
                 ModelState.AddModelError("", "Inloggen mislukt");
             }
