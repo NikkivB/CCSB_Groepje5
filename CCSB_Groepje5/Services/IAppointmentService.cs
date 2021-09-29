@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CCSB_Groepje5.Services
 {
-    interface IAppointmentService
+    public interface IAppointmentService
     {
         public List<AdministratorViewModel> GetAdministratorList();
         public List<KlantViewModel> GetKlantList();

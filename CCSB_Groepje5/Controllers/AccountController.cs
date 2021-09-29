@@ -33,7 +33,7 @@ namespace CCSB_Groepje5.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Appointment");
                     
                 }
                 ModelState.AddModelError("", "Inloggen mislukt");
