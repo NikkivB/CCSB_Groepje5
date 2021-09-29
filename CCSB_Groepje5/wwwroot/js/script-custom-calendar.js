@@ -17,6 +17,9 @@ function InitializeCalendar() {
                 selectable: true,
                 weekNumbers: true,
                 editable: false,
+                select: function (event) {
+                    onShowModal(event, null);
+                }
             });
             calendar.render();
         }
@@ -24,4 +27,7 @@ function InitializeCalendar() {
     catch (e) {
         alert(e);
     }
+}
+function onShowModal(obj, isEventDeail) {
+    $("appointmentInput").modal("show");
 }
