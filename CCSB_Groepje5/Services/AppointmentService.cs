@@ -1,4 +1,5 @@
-﻿using CCSB_Groepje5.Models.ViewModels;
+﻿using CCSB_Groepje5.Models;
+using CCSB_Groepje5.Models.ViewModels;
 using CCSB_Groepje5.Utility;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,13 @@ namespace CCSB_Groepje5.Services
 {
     public class AppointmentService : IAppointmentService
     {
+        private readonly ApplicationDbContext _db;
+
+        public AppointmentService(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         public List<AdministratorViewModel> GetAdministratorList()
         {
             var administrators = (from user in _db.Users
@@ -30,7 +38,7 @@ namespace CCSB_Groepje5.Services
             var klanten = (from user in _db.Users
                                   join userRole in _db.UserRoles on user.Id equals userRole.UserId
                                   join role in _db.Roles.Where(x => x.Name == Helper.Klant) on userRole.RoleId equals role.Id
-                                  select new AdministratorViewModel
+                                  select new KlantViewModel
                                   {
                                       Id = user.Id,
                                       Name = string.IsNullOrEmpty(user.MiddleName) ?

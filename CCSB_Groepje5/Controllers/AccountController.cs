@@ -13,9 +13,11 @@ namespace CCSB_Groepje5.Controllers
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _db;
+
         UserManager<ApplicationUser> _userManager;
         SignInManager<ApplicationUser> _signInManager;
         RoleManager<IdentityRole> _roleManager;
+
         public AccountController(ApplicationDbContext db,
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
@@ -85,16 +87,5 @@ namespace CCSB_Groepje5.Controllers
             }
             return View();
         }
-
-        //public async Task<IActionResult> Register()
-        //{
-        //    if (!_roleManager.RoleExistsAsync(IUrlHelper.Admin).GetAwaiter().GetResult())
-        //    {
-        //        await _roleManager.CreateAsync(new IdentityRole(IUrlHelper.Admin));
-        //        await _roleManager.CreateAsync(new IdentityRole(IUrlHelper.klant));
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //    return View();
-        //}
     }
 }
