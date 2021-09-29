@@ -1,4 +1,5 @@
 ﻿using CCSB_Groepje5.Services;
+using CCSB_Groepje5.Utility;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace CCSB_Groepje5.Controllers
         public IActionResult Index()
         {
             ViewBag.AdministratorList = _appointmentService.GetAdministratorList();
+            ViewBag.KlantList = _appointmentService.GetKlantList();
+            ViewBag.Duration = Helper.GetTimeDropDown();
             return View();
         }
     }
