@@ -3,6 +3,7 @@ using CCSB_Groepje5.Models.ViewModels;
 using CCSB_Groepje5.Utility;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -47,6 +48,34 @@ namespace CCSB_Groepje5.Services
                                   }
                                   ).OrderBy(u => u.Name).ToList();
             return klanten;
+        }
+
+        public async Task<int> AddUpdate(AppointmentViewModel model)
+        {
+            var startDate = DateTime.Parse(model.StartDate, CultureInfo.CreateSpecificCulture("en-US"));
+            var endDate = startDate.AddMinutes(Convert.ToDouble(model.Duration));
+            if(model != null && model.Id > 0)
+            {
+                //TODO: Add code fot update appointment
+                return 1;
+            }
+            else
+            {
+                //Create appointment based on viewmodel
+                Appointment appointment = new Appointment()
+                {
+                    Title = model.Title,
+                    Description = model.Description,
+                    StartDate = startDate,
+                    EndDate = endDate,
+                    Duration = model.Duration,
+                    KlantId = model.KlantId,
+
+                };
+                _db.Appointments.Add(appointment);
+                await _db.SaveChangesAsync();
+                return 2;
+            }
         }
     }
 }

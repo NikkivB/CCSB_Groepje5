@@ -10,5 +10,6 @@ namespace CCSB_Groepje5.Services
     {
         public List<AdministratorViewModel> GetAdministratorList();
         public List<KlantViewModel> GetKlantList();
+        public Task<int> AddUpdate(AppointmentViewModel model);
     }
 }
