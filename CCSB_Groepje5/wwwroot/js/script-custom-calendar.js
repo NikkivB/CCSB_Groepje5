@@ -35,5 +35,31 @@ function onCloseModal() {
     $("#appointmentInput").modal("hide");
 }
 function onSubmitForm() {
-    //TODO: Add code to save the appointment to the database
+    var requestData = {
+        Id: parseInt($("id").val()),
+        Title: $("#title").val(),
+        Description: $("#description").val(),
+        StartDate: $("#appointmentDate").val(),
+        Duration: $("#duration").val(),
+        Duration: $("#klantId").val()
+    };
+
+    $.ajax({
+        url: routeURL + "/api/AppointmentApi/SaveCalendarData",
+        type: "POST",
+        data: JSON.stringify(requestData),
+        contentType: "application/json",
+        succes: function (response) {
+            if (response.status === 1 || response.status === 2) {
+                $.notify(response.message, "succes");
+                onCloseModal();
+            } else {
+                $.notify(response.message, "error");
+            }
+        },
+        error: function (xhr) {
+            $.notify("Error", "Foutje");
+        }
+    });
+
 }
