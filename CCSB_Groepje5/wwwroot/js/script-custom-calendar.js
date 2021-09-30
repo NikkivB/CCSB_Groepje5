@@ -62,4 +62,12 @@ function onSubmitForm() {
         }
     });
 
+    $(document).ready(function () {
+        $("#appointmentDate").kendoDateTimePicker({
+            value: new Date(),
+            dateInput: false
+        });
+        InitializeCalendar();
+    });
+
 }
