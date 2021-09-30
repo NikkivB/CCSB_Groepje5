@@ -1,6 +1,13 @@
-﻿$(document).ready(function () {
+﻿var routeURL = location.protocol + "//" + location.host;
+
+$(document).ready(function () {
+    $("#appointmentDate").kendoDateTimePicker({
+        value: new Date(),
+        dateInput: false
+    });
     InitializeCalendar();
 });
+
 var calendar;
 function InitializeCalendar() {
     try {
@@ -41,7 +48,7 @@ function onSubmitForm() {
         Description: $("#description").val(),
         StartDate: $("#appointmentDate").val(),
         Duration: $("#duration").val(),
-        Duration: $("#klantId").val()
+        KlantId: $("#klantId").val()
     };
 
     $.ajax({
@@ -62,12 +69,13 @@ function onSubmitForm() {
         }
     });
 
-    $(document).ready(function () {
-        $("#appointmentDate").kendoDateTimePicker({
-            value: new Date(),
-            dateInput: false
-        });
-        InitializeCalendar();
-    });
+    //var routeURL = location.protocol + "//" + location.host;
+    //$(document).ready(function () {
+    //    $("#appointmentDate").kendoDateTimePicker({
+    //        value: new Date(),
+    //        dateInput: false
+    //    });
+    //    InitializeCalendar();
+    //});
 
 }
