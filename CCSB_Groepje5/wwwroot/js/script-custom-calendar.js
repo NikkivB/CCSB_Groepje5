@@ -69,13 +69,4 @@ function onSubmitForm() {
         }
     });
 
-    //var routeURL = location.protocol + "//" + location.host;
-    //$(document).ready(function () {
-    //    $("#appointmentDate").kendoDateTimePicker({
-    //        value: new Date(),
-    //        dateInput: false
-    //    });
-    //    InitializeCalendar();
-    //});
-
 }
