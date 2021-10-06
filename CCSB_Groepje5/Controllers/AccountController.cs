@@ -93,11 +93,5 @@ namespace CCSB_Groepje5.Controllers
             }
             return View(model);
         }
-        [HttpPost]
-        public async Task<IActionResult> LogOff()
-        {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("login");
-        }
     }
 }
