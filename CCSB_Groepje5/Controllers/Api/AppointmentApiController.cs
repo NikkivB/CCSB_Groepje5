@@ -27,6 +27,7 @@ namespace CCSB_Groepje5.Controllers.Api
             loginUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             role = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Role);
         }
+
         [HttpPost]
         [Route("SaveCalendarData")]
         public IActionResult SaveCalendarData(AppointmentViewModel data)
@@ -37,10 +38,12 @@ namespace CCSB_Groepje5.Controllers.Api
                 commonResponse.Status = _appointmentService.AddUpDate(data).Result;
                 if (commonResponse.Status == 1)
                 {
+                    //succesfull update
                     commonResponse.Message = Helper.AppointmentUpdated;
                 }
                 else if (commonResponse.Status == 2)
                 {
+                    //Succesful addition
                     commonResponse.Message = Helper.AppointmentAdded;
                 }
             }

@@ -14,6 +14,7 @@ namespace CCSB_Groepje5.Controllers
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _db;
+
         UserManager<ApplicationUser> _userManager;
         SignInManager<ApplicationUser> _signInManager;
         RoleManager<IdentityRole> _rolemanager;
@@ -42,6 +43,13 @@ namespace CCSB_Groepje5.Controllers
             }
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> LogOff()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)

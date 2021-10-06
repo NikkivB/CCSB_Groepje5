@@ -20,29 +20,31 @@ namespace CCSB_Groepje5.Services
 
         public async Task<int> AddUpDate(AppointmentViewModel model)
         {
-                var startDate = DateTime.Parse(model.StartDate, CultureInfo.CreateSpecificCulture("en-US"));
-                var endDate = startDate.AddMinutes(Convert.ToDouble(model.Duration));
+            var startDate = DateTime.Parse(model.StartDate, CultureInfo.CreateSpecificCulture("en-US"));
+            var endDate = startDate.AddMinutes(Convert.ToDouble(model.Duration));
                 if (model != null && model.Id > 0)
+            {
+                //TODO: Add code fot update appointment
+                return 1;
+            }
+            else
+            {
+                //Create appointment based on viewmodel
+                Appointment appointment = new Appointment()
                 {
-                    return 1;
-                }
-                else
-                {
-                    Appointment appointment = new Appointment()
-                    {
-                        Title = model.Title,
-                        Description = model.Description,
-                        StartDate = startDate,
-                        EndDate = endDate,
-                        Duration = model.Duration,
+                    Title = model.Title,
+                    Description = model.Description,
+                    StartDate = startDate,
+                    EndDate = endDate,
+                    Duration = model.Duration,
                         AdminId = model.AdminId,
                         CustomerId = model.CustomerId,
                         IsAdminApproved = model.IsAdminApproved
-                    };
-                    _db.Appointments.Add(appointment);
-                    await _db.SaveChangesAsync();
-                    return 2;
-                }
+                };
+                _db.Appointments.Add(appointment);
+                await _db.SaveChangesAsync();
+                return 2;
+            }
             }
 
         public List<AdminViewModel> GetAdminList()

@@ -1,18 +1,19 @@
 ﻿<div class="row">
     <div class="container">
         @if (User.IsInRole(CCSB_Groepje5.Utility.Helper.Admin))
-        {
+            {
             <div class="form-group col-4" id="divAdminList">
                 <label> Select Admin</label>
                 @Html.DropDownList("adminId", new SelectList(ViewBag.AdminList, "Id", "Name"),
-                new { @class = "form-control select2" })
-            </div>
-        }
+                   new { @class = "form-control select2" })
+                </div>
+            }
         <div id="calendar"></div>
     </div>
 </div>
 
 <partial name="_AddEditAppointment"/>
+
 @section Scripts{
     <script src="~/js/script-custom-calender.js"></script>
-}
+            }
