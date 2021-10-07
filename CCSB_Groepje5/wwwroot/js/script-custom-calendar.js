@@ -1,5 +1,4 @@
 ﻿var routeURL = location.protocol + "//" + location.host;
-
 $(document).ready(function () {
     $("#appointmentDate").kendoDateTimePicker({
         value: new Date(),
@@ -7,7 +6,6 @@ $(document).ready(function () {
     });
     InitializeCalendar();
 });
-
 var calendar;
 function InitializeCalendar() {
     try {
@@ -35,20 +33,24 @@ function InitializeCalendar() {
         alert(e);
     }
 }
-function onShowModal(obj, isEventDeail) {
-    $("#appointmentInput").modal("show");
+function onShowModal(obj, _isEventDeail) {
+    $('#appointmentInput').modal("show");
 }
+
 function onCloseModal() {
     $("#appointmentInput").modal("hide");
 }
+
 function onSubmitForm() {
+    if (!checkValidation()) return;
     var requestData = {
         Id: parseInt($("id").val()),
         Title: $("#title").val(),
         Description: $("#description").val(),
         StartDate: $("#appointmentDate").val(),
         Duration: $("#duration").val(),
-        KlantId: $("#klantId").val()
+        AdminId: $("#adminId").val(),
+        CustomerId: $("#customerId").val(),
     };
 
     $.ajax({
@@ -56,9 +58,9 @@ function onSubmitForm() {
         type: "POST",
         data: JSON.stringify(requestData),
         contentType: "application/json",
-        succes: function (response) {
+        success: function (response) {
             if (response.status === 1 || response.status === 2) {
-                $.notify(response.message, "succes");
+                $.notify(response.message, "success");
                 onCloseModal();
             } else {
                 $.notify(response.message, "error");
@@ -68,5 +70,20 @@ function onSubmitForm() {
             $.notify("Error", "Foutje");
         }
     });
-
+}
+function checkValidation() {
+    var isValid = true;
+    if ($("#title").val() === undefined || $("#title").val().trim() === "") {
+        isValid = false;
+        $("#title").addClass("error");
+    } else {
+        $("#title").removeClass("error");
+    }
+    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "") {
+        isValid = false;
+        $("#appointmentDate").addClass("error");
+    } else {
+        $("#appointmentDate").removeClass("error");
+    }
+    return isValid;
 }
