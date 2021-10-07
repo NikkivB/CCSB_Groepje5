@@ -32,14 +32,10 @@ namespace CCSB_Groepje5.Services
                 //Create appointment based on viewmodel
                 Appointment appointment = new Appointment()
                 {
-                    Title = model.Title,
-                    Description = model.Description,
+                    CustomerId = model.CustomerId,
                     StartDate = startDate,
-                    EndDate = endDate,
-                    Duration = model.Duration,
-                        AdminId = model.AdminId,
-                        CustomerId = model.CustomerId,
-                        IsAdminApproved = model.IsAdminApproved
+                    EndDate = endDate
+                        
                 };
                 _db.Appointments.Add(appointment);
                 await _db.SaveChangesAsync();
