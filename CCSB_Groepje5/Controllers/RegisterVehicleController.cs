@@ -15,7 +15,7 @@ namespace CCSB_Groepje5.Controllers
         {
             _db = db;
         }
-        public async Task<IActionResult> Index(RegisterVehicleViewModel model)
+        public IActionResult Index(RegisterVehicleViewModel model)
         {
             
             return View();
