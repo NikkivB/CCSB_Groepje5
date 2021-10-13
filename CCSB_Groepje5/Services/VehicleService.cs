@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CCSB_Groepje5.Services
 {
-    public class VehicleService
+    public class VehicleService : IVehicleService
     {
         private readonly ApplicationDbContext _db;
 
