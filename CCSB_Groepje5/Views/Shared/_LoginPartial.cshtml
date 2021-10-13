@@ -2,7 +2,6 @@
 
 @if (signinManager.IsSignedIn(User))
 {
-    
     //deze if statement zorgt ervoor dat als de gebruiker geen beheerder
     //is dat de register knop niet op de website staat
     if (User.IsInRole("Beheerder"))
@@ -30,5 +29,4 @@ else
             <a id="loginLink" class="nav-link text-white" asp-action="Login" asp-controller="Account">Inloggen</a>
         </li>
     </ul>
-
 }

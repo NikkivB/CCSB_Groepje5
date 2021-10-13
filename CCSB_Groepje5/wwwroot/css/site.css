@@ -148,6 +148,11 @@ body {
     background-color: #8CD2A4 !important;
 }
 
+/*header css*/
+#bentelo-titel{
+    margin-left: 45%;
+}
+
 /*footer css*/
 
 .footer {
@@ -160,6 +165,7 @@ body {
     border-color: #8CD2A4;
 }
 
+/*hier word een grid aangemaakt die wordt gebruikt voor de footer*/
 .footer-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1.1fr 0.9fr;
@@ -168,6 +174,8 @@ body {
     grid-auto-flow: row;
     padding-top: 5px;
 }
+
+/*hier staat de css voor de apparte grid colommen*/
 .footer1 {
     grid-column-start: 1;
     grid-column-end: 1;
@@ -189,11 +197,7 @@ body {
     grid-column-end: 4;
 }
 
-.no-distance{
-    padding:0;
-    margin:0;
-}
-
+/*footer css van ID's*/
 #logo {
     margin:25px;
     margin-left: 40px;
@@ -204,4 +208,9 @@ body {
 #kaart {
     width: 140px;
     height: 140px;
+}
+
+/*font*/
+* {
+    font-family: Verdana;
 }
