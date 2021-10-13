@@ -16,6 +16,8 @@ namespace CCSB_Groepje5.Services
         {
             _db = db;
         }
+
+
         public List<CustomerViewModel> GetCustomerList()
         {
             var customers = (from user in _db.Users

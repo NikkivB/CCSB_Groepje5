@@ -2,6 +2,17 @@
 
 @if (signinManager.IsSignedIn(User))
 {
+    if (User.IsInRole("Beheerder"))
+    {
+<ul class="nav navbar-nav">
+    <li>
+        <a id="registerLink" class="nav-link text-white" asp-action="Register" asp-controller="Account">Registreren</a>
+    </li>
+    <li>
+        <a id="registerVehicleLink" class="nav-link text-white" asp-action="RegisterVehicleIndex" asp-controller="RegisterVehicle">Voertuigen</a>
+    </li>
+</ul>
+    }
     <form method="post" id="logoutForm" asp-action="Logoff" asp-controller="Account">
         <ul class="nav navbar-nav">
             <li class="text-white nav-link">Welkom @User.Identity.Name</li>
@@ -14,17 +25,12 @@
 else
 {
     <ul class="nav navbar-nav">
-    <li>
-        @*Html.ActionLink("Registreer", "Register", "Account", routeValues: null,
-        htmlAttributes: new { id = "registerLink" })*@
-        <a id="registerLink" class="nav-link text-white" asp-action="Register" asp-controller="Account">Registreren</a>
 
-    </li>
-    <li>
-        @*Html.ActionLink("Login", "Login", "Account", routeValues: null,
-        htmlAttributes: new { id = "loginLink" })*@
-        <a id="loginLink" class="nav-link text-white" asp-action="Login" asp-controller="Account">Inloggen</a>
+        <li>
+            @*Html.ActionLink("Login", "Login", "Account", routeValues: null,
+                htmlAttributes: new { id = "loginLink" })*@
+            <a id="loginLink" class="nav-link text-white" asp-action="Login" asp-controller="Account">Inloggen</a>
 
-    </li>
-</ul>
+        </li>
+    </ul>
 }
