@@ -10,6 +10,7 @@ namespace CCSB_Groepje5.Utility
     {
         public static readonly string Admin = "Beheerder";
         public static readonly string Customer = "Klant";
+        public static readonly string Vehicle = "Voertuig";
 
         public static string AppointmentAdded = "Afspraak succesvol opgeslagen.";
         public static string AppointmentConfirmed = "Afspraak bevestigd.";
@@ -43,6 +44,10 @@ namespace CCSB_Groepje5.Utility
                 duration.Add(new SelectListItem { Value = i.ToString(), Text = i + " minuten " });
             }
             return duration;
+
+
         }
+
+
     }
 }
