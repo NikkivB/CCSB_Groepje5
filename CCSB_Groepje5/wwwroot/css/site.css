@@ -149,6 +149,31 @@ body {
 }
 
 /*header css*/
+
+.header-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    padding-top: 5px;
+}
+
+.header1 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+.header2 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.header3 {
+    grid-column-start: 3;
+    grid-column-end: 3;
+}
+
 #bentelo-titel{
     margin-left: 45%;
 }
@@ -213,4 +238,32 @@ body {
 /*font*/
 * {
     font-family: Verdana;
+}
+
+/*home index*/
+
+.home-grid {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+}
+
+.home1{
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-color: white;
+}
+
+.home2 {
+    grid-row-start: 2;
+    grid-row-end: 2;
+    color: white;
+    background-color: #4F4E46;
+}
+
+.home3 {
+    grid-row-start: 3;
+    grid-row-end: 3;
+    background-color: white;
 }

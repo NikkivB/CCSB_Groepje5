@@ -1,4 +1,5 @@
-﻿var routeURL = location.protocol + "//" + location.host;
+﻿
+var routeURL = location.protocol + "//" + location.host;
 $(document).ready(function () {
     $("#appointmentDate").kendoDateTimePicker({
         value: new Date(),
@@ -79,7 +80,7 @@ function checkValidation() {
     } else {
         $("#title").removeClass("error");
     }
-    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "") {
+    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "" ) {
         isValid = false;
         $("#appointmentDate").addClass("error");
     } else {

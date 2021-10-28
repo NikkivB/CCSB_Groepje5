@@ -56,6 +56,3 @@ namespace CCSB_Groepje5.Controllers.Api
         }
     }
 }
-
-
-  
