@@ -1,5 +1,7 @@
 ﻿using CCSB_Groepje5.Models;
 using CCSB_Groepje5.Models.ViewModels;
+using CCSB_Groepje5.Services;
+using CCSB_Groepje5.Utility;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,13 +13,32 @@ namespace CCSB_Groepje5.Controllers
     public class RegisterVehicleController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public RegisterVehicleController(ApplicationDbContext db)
+        private readonly IVehicleService _IVehicleService;
+
+        public RegisterVehicleController(IVehicleService vehicleService, ApplicationDbContext db)
         {
+            _IVehicleService = vehicleService;
             _db = db;
         }
-        public IActionResult Index(RegisterVehicleViewModel model)
+
+        public List<CustomerViewModel> GetCustomerList()
         {
-            
+            var customers = (from user in _db.Users
+                             join userRole in _db.UserRoles on user.Id equals userRole.UserId
+                             join role in _db.Roles.Where(x => x.Name == Helper.Customer) on userRole.RoleId equals role.Id
+                             select new CustomerViewModel
+                             {
+                                 Id = user.Id,
+                                 Name = string.IsNullOrEmpty(user.Middlename) ?
+                                 user.FirstName + " " + user.LastName :
+                                 user.FirstName + " " + user.Middlename + " " + user.LastName
+                             }
+                                  ).OrderBy(u => u.Name).ToList();
+            return customers;
+        }
+        public IActionResult Index()
+        {
+            ViewBag.CustomerList = _IVehicleService.GetCustomerList();
             return View();
         }
     }

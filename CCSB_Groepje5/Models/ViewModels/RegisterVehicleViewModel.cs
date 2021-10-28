@@ -11,7 +11,7 @@ namespace CCSB_Groepje5.Models.ViewModels
     {
         [DisplayName("Klant")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
-        public string Customer { get; set; }
+        public string CustomerId { get; set; }
 
         [DisplayName("Kentekenplaat")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
