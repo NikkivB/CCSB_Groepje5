@@ -34,6 +34,15 @@
         </div>
     </div>
 
+    @*Lengte voertuig in meters*@
+    <div class="form-group row">
+        <label class="col-md-2" asp-for="SurfaceTaken"></label>
+        <div class="col-md-10">
+            <input asp-for="SurfaceTaken" class="form-control" />
+            <span asp-validation-for="SurfaceTaken" class="text-danger"></span>
+        </div>
+    </div>
+
     @*Submit*@
     <div class="form-group">
         <div class="col-md-10 offset-md-2">
