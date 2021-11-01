@@ -36,6 +36,7 @@ namespace CCSB_Groepje5.Controllers
                                   ).OrderBy(u => u.Name).ToList();
             return customers;
         }
+
         public IActionResult Index()
         {
             ViewBag.CustomerList = _IVehicleService.GetCustomerList();

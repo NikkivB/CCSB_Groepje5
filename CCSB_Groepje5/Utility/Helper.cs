@@ -44,8 +44,6 @@ namespace CCSB_Groepje5.Utility
                 duration.Add(new SelectListItem { Value = i.ToString(), Text = i + " minuten " });
             }
             return duration;
-
-
         }
 
 

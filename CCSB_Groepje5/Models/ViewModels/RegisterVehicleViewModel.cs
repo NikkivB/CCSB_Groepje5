@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 namespace CCSB_Groepje5.Models.ViewModels
 {
     public class RegisterVehicleViewModel
+
     {
+        public int Id { get; set; }
+
         [DisplayName("Klant")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string CustomerId { get; set; }
@@ -20,5 +23,7 @@ namespace CCSB_Groepje5.Models.ViewModels
         [DisplayName("Soort voertuig")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string VehicleType { get; set; }
+
+        public int SurfaceTaken { get; set; }
     }
 }

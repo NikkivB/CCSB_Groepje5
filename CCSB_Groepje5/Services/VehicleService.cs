@@ -34,6 +34,39 @@ namespace CCSB_Groepje5.Services
             return customers;
         }
 
+        public async Task<int> AddUpDate(RegisterVehicleViewModel model)
+        {
+            
+            if (model != null && model.Id > 0)
+            {
+                //TODO: Add code for update appointment
+                return 1;
+            }
+            else
+            {
+                if (model.VehicleType == "Caravan")
+                {
+                    model.SurfaceTaken = 2;
+                }
+                else
+                {
+                    model.SurfaceTaken = 1;
+                }
+                //Create appointment based on viewmodel
+                Vehicle vehicle = new Vehicle()
+                {
+                    CustomerId = model.CustomerId,
+                    LicensePlate = model.LicensePlate,
+                    VehicleType = model.VehicleType,
+                    SurfaceTaken = model.SurfaceTaken
+                };
+            
+                _db.Vehicles.Add(vehicle);
+                await _db.SaveChangesAsync();
+                return 2;
+            }
+        }
+
 
     }
 }
