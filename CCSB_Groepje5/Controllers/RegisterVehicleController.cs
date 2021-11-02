@@ -38,12 +38,19 @@ namespace CCSB_Groepje5.Controllers
             return customers;
         }
 
-        
+        public IActionResult Index()
+        {
+            ViewBag.CustomerList = _IVehicleService.GetCustomerList();
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Index(RegisterVehicleViewModel model)
         {
             ViewBag.CustomerList = _IVehicleService.GetCustomerList();
 
-            
+           
                 Vehicle v = new Vehicle();
                 v.LicensePlate = model.LicensePlate;
                 v.VehicleType = model.VehicleType;
@@ -52,7 +59,7 @@ namespace CCSB_Groepje5.Controllers
 
                 _db.Vehicles.Add(v);
                 _db.SaveChanges();
-
+            
                 ViewBag.message = "Het voertuig met kentekenplaat: '" + model.LicensePlate + "' is toegevoegd!";
             
 
