@@ -1,6 +1,7 @@
 ﻿using CCSB_Groepje5.Models;
 using CCSB_Groepje5.Models.ViewModels;
 using CCSB_Groepje5.Utility;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -74,5 +75,20 @@ namespace CCSB_Groepje5.Services
                                   ).OrderBy(u => u.Name).ToList();
             return customers;
         }
+
+        //public List<VehicleViewModel> GetVehicleList()
+        //{
+        //    var vehicles = (from vehicle in _db.Vehicles
+        //                    join user in _db.Users on vehicle.CustomerId equals user.Id
+        //                    select new VehicleViewModel
+        //                    {
+        //                        Id = vehicle.Id.ToString(),
+        //                        LicensePlate = vehicle.LicensePlate
+        //                    }
+        //                         ).OrderBy(v => v.LicensePlate).ToList();
+
+        //    return vehicles;
+        //}
+
     }
 }

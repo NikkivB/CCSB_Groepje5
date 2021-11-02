@@ -12,6 +12,7 @@ namespace CCSB_Groepje5.Services
     {
         public List<AdminViewModel> GetAdminList();
         public List<CustomerViewModel> GetCustomerList();
+        //public List<VehicleViewModel> GetVehicleList();
         public Task<int> AddUpDate(AppointmentViewModel model);
     }
 }
