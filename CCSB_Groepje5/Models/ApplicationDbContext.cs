@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CCSB_Groepje5.Models.ViewModels;
 
 
 namespace CCSB_Groepje5.Models
@@ -17,5 +18,6 @@ namespace CCSB_Groepje5.Models
 
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
+
     }
 }

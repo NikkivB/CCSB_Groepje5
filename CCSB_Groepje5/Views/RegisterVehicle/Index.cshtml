@@ -1,55 +1,39 @@
 ﻿@model CCSB_Groepje5.Models.ViewModels.RegisterVehicleViewModel
 
-<h2>Voertuig registreren</h2>
-<form method="post" asp-action="Index" asp-controller="Home">
-
-    <hr />
-
-    @*Error*@
-    <div asp-validation-summary="All" class="text-danger"></div>
-
-    @*kentekenplaat*@
-    <div class="form-group row">
-        <label class="col-md-2" asp-for="LicensePlate"></label>
-        <div class="col-md-10">
-            <input asp-for="LicensePlate" class="form-control" />
-            <span asp-validation-for="LicensePlate" class="text-danger"></span>
-        </div>
+<h4>RegisterVehicleViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label"></label>
+                <select id="customerId" asp-items="@(new SelectList(ViewBag.CustomerList, "Id", "Name"))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="LicensePlate" class="control-label"></label>
+                <input asp-for="LicensePlate" class="form-control" />
+                <span asp-validation-for="LicensePlate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleType" class="control-label"></label>
+                <input asp-for="VehicleType" class="form-control" />
+                <span asp-validation-for="VehicleType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SurfaceTaken" class="control-label"></label>
+                <input asp-for="SurfaceTaken" class="form-control" />
+                <span asp-validation-for="SurfaceTaken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @ViewBag.message
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
+</div>
 
-    @*Klant*@
-    <div class="form-group">
-        <label for="CustomerId">Selecteer Klant</label>
-        <select id="CustomerId"
-                asp-items="@(new SelectList(ViewBag.CustomerList, "Id", "Name"))"
-                class="form-control"></select>
-    </div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
-    @*Soort voertuig*@
-    <div class="form-group row">
-        <label class="col-md-2" asp-for="VehicleType"></label>
-        <div class="col-md-10">
-            <input asp-for="VehicleType" class="form-control" />
-            <span asp-validation-for="VehicleType" class="text-danger"></span>
-        </div>
-    </div>
-
-    @*Lengte voertuig in meters*@
-    <div class="form-group row">
-        <label class="col-md-2" asp-for="SurfaceTaken"></label>
-        <div class="col-md-10">
-            <input asp-for="SurfaceTaken" class="form-control" />
-            <span asp-validation-for="SurfaceTaken" class="text-danger"></span>
-        </div>
-    </div>
-
-    @*Submit*@
-    <div class="form-group">
-        <div class="col-md-10 offset-md-2">
-            <input type="submit" value="Registreer dit voertuig" class="btn btn-success" />
-        </div>
-    </div>
-</form>
-@section Scripts{
-    <partial name="_ValidationScriptsPartial" />
-}

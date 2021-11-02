@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace CCSB_Groepje5.Controllers
 {
@@ -37,9 +38,24 @@ namespace CCSB_Groepje5.Controllers
             return customers;
         }
 
-        public IActionResult Index()
+        
+        public IActionResult Index(RegisterVehicleViewModel model)
         {
             ViewBag.CustomerList = _IVehicleService.GetCustomerList();
+
+            
+                Vehicle v = new Vehicle();
+                v.LicensePlate = model.LicensePlate;
+                v.VehicleType = model.VehicleType;
+                v.SurfaceTaken = model.SurfaceTaken;
+                v.CustomerId = model.CustomerId;
+
+                _db.Vehicles.Add(v);
+                _db.SaveChanges();
+
+                ViewBag.message = "Het voertuig met kentekenplaat: '" + model.LicensePlate + "' is toegevoegd!";
+            
+
             return View();
         }
     }
