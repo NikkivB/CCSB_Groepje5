@@ -1,6 +1,10 @@
 ﻿@model CCSB_Groepje5.Models.ViewModels.RegisterVehicleViewModel
 
-<h4 class="titleHeader">Voertuig Registreren</h4>
+@if (User.IsInRole("Beheerder"))
+{
+
+
+    <h4 class="titleHeader">Voertuig Registreren</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -8,7 +12,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CustomerId" class="control-label"></label>
-                <select id="CustomerId"  name="CustomerId" asp-items="@(new SelectList(ViewBag.CustomerList, "Id", "Name"))" class="form-control"></select>
+                <select id="CustomerId" name="CustomerId" asp-items="@(new SelectList(ViewBag.CustomerList, "Id", "Name"))" class="form-control"></select>
             </div>
             <div class="form-group">
                 <label asp-for="LicensePlate" class="control-label"></label>
@@ -17,14 +21,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="VehicleType" class="control-label"></label>
-                <br/>
+                <br />
                 Caravan <input asp-for="VehicleType" class="form-control" type="radio" name="VehicleType" value="Caravan" />
                 Camper <input asp-for="VehicleType" class="form-control" type="radio" name="VehicleType" value="Camper" />
                 <span asp-validation-for="VehicleType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SurfaceTaken" class="control-label"></label>
-                
+
                 <input asp-for="SurfaceTaken" class="form-control" />
                 <span asp-validation-for="SurfaceTaken" class="text-danger"></span>
             </div>
@@ -37,6 +41,10 @@
         </form>
     </div>
 </div>
+} else
+            {
+                <h4>Sorry, maar deze pagina is niet voor u bestemd.</h4>
+            }
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
