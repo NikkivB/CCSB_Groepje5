@@ -9,6 +9,6 @@ namespace CCSB_Groepje5.Services
     public interface IVehicleService
     {
         public List<CustomerViewModel> GetCustomerList();
-        //public async Task<int> AddUpDate(RegisterVehicleViewModel model);
+        
     }
 }

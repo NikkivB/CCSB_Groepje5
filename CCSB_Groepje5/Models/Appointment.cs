@@ -13,6 +13,7 @@ namespace CCSB_Groepje5.Models
         public int Duration { get; set; }
         public string AdminId { get; set; }
         public string CustomerId { get; set; }
+        public string VehicleId { get; set; }
         public bool IsAdminApproved { get; set; }
     }
 }

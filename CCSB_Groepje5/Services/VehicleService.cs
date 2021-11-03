@@ -34,30 +34,5 @@ namespace CCSB_Groepje5.Services
             return customers;
         }
 
-        //public async Task<int> AddUpDate(RegisterVehicleViewModel model)
-        //{
-            
-        //    if (model != null && model.Id > 0)
-        //    {
-        //        //TODO: Add code for update vehicle
-        //        return 1;
-        //    }
-        //    else
-        //    {
-        //        //Create vehicle based on viewmodel
-        //        Vehicle v = new Vehicle();
-        //        v.LicensePlate = model.LicensePlate;
-        //        v.VehicleType = model.VehicleType;
-        //        v.SurfaceTaken = model.SurfaceTaken;
-        //        v.CustomerId = model.CustomerId;
-
-        //        _db.Vehicles.Add(v);
-        //        await _db.SaveChangesAsync();
-
-        //        return 2;
-        //    }
-        //}
-
-
     }
 }

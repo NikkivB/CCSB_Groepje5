@@ -22,6 +22,8 @@ namespace CCSB_Groepje5.Controllers
             _db = db;
         }
 
+        /// <summary>Gets the customer list.</summary>
+       
         public List<CustomerViewModel> GetCustomerList()
         {
             var customers = (from user in _db.Users

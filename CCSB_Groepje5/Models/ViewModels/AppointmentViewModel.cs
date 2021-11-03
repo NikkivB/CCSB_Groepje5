@@ -14,6 +14,7 @@ namespace CCSB_Groepje5.Models.ViewModels
         public int Duration { get; set; }
         public string AdminId { get; set; }
         public string CustomerId { get; set; }
+        public string VehicleId { get; set; }
         public string AdminName { get; set; }
         public bool IsForCustomer { get; set; }
     }
