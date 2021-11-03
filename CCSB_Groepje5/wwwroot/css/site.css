@@ -19,8 +19,10 @@ a {
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
+
 /* Sticky footer styles
 -------------------------------------------------- */
+
 html {
     font-size: 14px;
     font-family: Verdana;
@@ -58,7 +60,7 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    margin-bottom: 150px;
 }
 
 
@@ -175,8 +177,73 @@ body {
 }
 
 #bentelo-titel{
-    margin-left: 45%;
+    text-align: center;
 }
+
+/*home index*/
+
+.home-grid {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+}
+
+.home-grid-1 {
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-color: white;
+}
+
+.home-grid-2 {
+    grid-row-start: 2;
+    grid-row-end: 2;
+    color: white;
+    background-color: #4F4E46;
+    margin: 0 !important;
+}
+
+.home-grid-3 {
+    grid-row-start: 3;
+    grid-row-end: 3;
+    background-color: white;
+}
+
+.home-grid-img {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    margin-top: 15px;
+    margin-bottom:25px;
+    padding-bottom: 25px;
+}
+
+.h-grid-img-1 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    padding-left: 20px;
+}
+
+.h-grid-img-2 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    padding-left:50px;
+}
+
+.home-center{
+    text-align:center;
+}
+
+.home-h1{
+    margin: 20px 20px 15px 20px;
+}
+
+#camper-1{
+    height: 250px;
+}
+
 
 /*footer css*/
 
@@ -235,35 +302,11 @@ body {
     height: 140px;
 }
 
-/*font*/
+/*other*/
+.main-c {
+    color: #8CD2A4;
+}
+
 * {
     font-family: Verdana;
-}
-
-/*home index*/
-
-.home-grid {
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
-}
-
-.home1{
-    grid-row-start: 1;
-    grid-row-end: 1;
-    background-color: white;
-}
-
-.home2 {
-    grid-row-start: 2;
-    grid-row-end: 2;
-    color: white;
-    background-color: #4F4E46;
-}
-
-.home3 {
-    grid-row-start: 3;
-    grid-row-end: 3;
-    background-color: white;
 }

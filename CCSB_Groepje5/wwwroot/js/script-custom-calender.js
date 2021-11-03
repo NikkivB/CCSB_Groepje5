@@ -25,6 +25,7 @@ function InitializeCalendar() {
                 editable: false,
                 select: function (event) {
                     onShowModal(event, null);
+
                 }
             });
             calendar.render();

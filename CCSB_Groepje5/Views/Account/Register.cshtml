@@ -4,9 +4,9 @@
 @if (User.IsInRole("Beheerder"))
 {
     //deze pagina wordt alleen getoond als je bent ingelogd als beheerder
-
+<div class="container">
     <h2>Registreren</h2>
-    <form method="post" asp-action="Register" asp-controller="Account" style="margin-bottom: 100px;">
+    <form method="post" asp-action="Register" asp-controller="Account">
         <h4>Account aanmaken</h4>
         <hr />
         <div asp-validation-summary="All" class="text-danger"></div>
@@ -70,6 +70,7 @@
             </div>
         </div>
     </form>
+</div>
     @section Scripts{
         <partial name="_ValidationScriptsPartial" />
     }
