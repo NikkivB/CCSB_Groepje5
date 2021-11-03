@@ -159,17 +159,17 @@ body {
     padding-top: 5px;
 }
 
-.header1 {
+.header-grid-1 {
     grid-column-start: 1;
     grid-column-end: 1;
 }
 
-.header2 {
+.header-grid-2 {
     grid-column-start: 2;
     grid-column-end: 2;
 }
 
-.header3 {
+.header-grid-3 {
     grid-column-start: 3;
     grid-column-end: 3;
 }
@@ -201,23 +201,23 @@ body {
 }
 
 /*hier staat de css voor de apparte grid colommen*/
-.footer1 {
+.footer-grid-1 {
     grid-column-start: 1;
     grid-column-end: 1;
     padding-left: 10px;
 }
 
-.footer2 {
+.footer-grid-2 {
     grid-column-start: 2;
     grid-column-end: 2;
 }
 
-.footer3 {
+.footer-grid-3 {
     grid-column-start: 3;
     grid-column-end: 3;
 }
 
-.footer4{
+.footer-grid-4 {
     grid-column-start: 4;
     grid-column-end: 4;
 }

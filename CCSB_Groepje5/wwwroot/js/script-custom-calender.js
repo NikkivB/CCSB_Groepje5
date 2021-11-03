@@ -72,6 +72,7 @@ function onSubmitForm() {
         }
     });
 }
+
 function checkValidation() {
     var isValid = true;
     if ($("#title").val() === undefined || $("#title").val().trim() === "") {
@@ -80,7 +81,7 @@ function checkValidation() {
     } else {
         $("#title").removeClass("error");
     }
-    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "" ) {
+    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "") {
         isValid = false;
         $("#appointmentDate").addClass("error");
     } else {
