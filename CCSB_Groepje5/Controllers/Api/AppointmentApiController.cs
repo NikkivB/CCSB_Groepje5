@@ -28,6 +28,8 @@ namespace CCSB_Groepje5.Controllers.Api
             role = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Role);
         }
 
+        
+
         [HttpPost]
         [Route("SaveCalendarData")]
         public IActionResult SaveCalendarData(AppointmentViewModel data)

@@ -12,7 +12,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CustomerId" class="control-label"></label>
-                <select id="CustomerId" name="CustomerId" asp-items="@(new SelectList(ViewBag.CustomerList, "Id", "Name"))" class="form-control"></select>
+                <select id="CustomerId" name="CustomerId" asp-items="@(new SelectList(ViewBag.CustomerList, "Id", "Name"))" class="form-control">
+                    <option value="" selected disabled>-- Kies een klant --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="LicensePlate" class="control-label"></label>
