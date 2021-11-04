@@ -62,7 +62,13 @@ namespace CCSB_Groepje5.Controllers
                     Email = model.Email,
                     FirstName = model.FirstName,
                     Middlename = model.MiddleName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+                    BankNumber = model.BankNumber,
+                    Adress = model.Adress,
+                    Postalcode = model.Postalcode,
+                    City = model.City,
+                    PhoneNumber = model.PhoneNumber,
+                    Birthdate = model.Birthdate
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

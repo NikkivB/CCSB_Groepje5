@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CCSB_Groepje5.Migrations
 {
-    public partial class addedtables : Migration
+    public partial class startagain : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,6 +18,7 @@ namespace CCSB_Groepje5.Migrations
                     Duration = table.Column<int>(type: "int", nullable: false),
                     AdminId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VehicleId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsAdminApproved = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

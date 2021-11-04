@@ -9,6 +9,7 @@ namespace CCSB_Groepje5.Models.ViewModels
 {
     public class RegisterViewModel
     {
+        //volledige naam
         [DisplayName("Voornaam")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string FirstName { get; set; }
@@ -20,21 +21,55 @@ namespace CCSB_Groepje5.Models.ViewModels
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string LastName { get; set; }
 
+        //Geboortedatum
+        [Required(ErrorMessage = "{0} is een verplicht veld.")]
+        [DisplayName("Geboortedatum")]
+        [DataType(DataType.Date)]
+        public DateTime Birthdate { get; set; }
+
+        //adres, postcode, woonplaats
+        [Required(ErrorMessage = "{0} is een verplicht veld.")]
+        [DisplayName("Adres")]
+        public string Adress { get; set; }
+
+        [Required(ErrorMessage = "{0} is een verplicht veld.")]
+        [DisplayName("Postcode")]
+        public string Postalcode { get; set; }
+
+        [Required(ErrorMessage = "{0} is een verplicht veld.")]
+        [DisplayName("Woonplaats")]
+        public string City { get; set; }
+
+        //email adress
         [EmailAddress]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string Email { get; set; }
 
+        //telefoonnummer
+        [Required(ErrorMessage = "{0} is een verplicht veld.")]
+        [DisplayName("Telefoonnummer")]
+        public string PhoneNumber { get; set; }
+
+        //bankrekeningnummer
+        [Required(ErrorMessage = "{0} is een verplicht veld.")]
+        [DisplayName("bankrekeningnummer")]
+        public string BankNumber { get; set; }
+
+        //wachtwoord
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         [DataType(DataType.Password)]
         [DisplayName("Wachtwoord")]
         [StringLength(100, ErrorMessage = "Het {0} moet minstens {2} tekens bevatten.", MinimumLength = 6)]
         public string Password { get; set; }
 
+
         [DisplayName("Bevestig wachtwoord")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Wachtwoorden komen niet overeen")]
         public string PasswordConfirm { get; set; }
+        
 
+        //rol
         [DisplayName("Rol")]
         [Required(ErrorMessage = "{0} is een verplicht veld")]
         public string RoleName { get; set; }
