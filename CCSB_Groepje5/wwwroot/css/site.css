@@ -70,7 +70,7 @@ body {
 }
 
 .checkbox input {
-    margin-left: 0px !important;
+    margin-left: 0px;
 }
 
 .navbar-inverse {
@@ -146,7 +146,7 @@ body {
     display: block;
 }
 
-.bg-white {
+.bg-color{
     background-color: #8CD2A4 !important;
 }
 
