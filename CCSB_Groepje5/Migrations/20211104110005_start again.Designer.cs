@@ -10,8 +10,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CCSB_Groepje5.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
+<<<<<<< HEAD:CCSB_Groepje5/Migrations/20211104110005_start again.Designer.cs
     [Migration("20211104110005_start again")]
     partial class startagain
+=======
+    [Migration("20211006125349_hallo")]
+    partial class hallo
+>>>>>>> jayden_danny_fokkink:CCSB_Groepje5/Migrations/20211006125349_hallo.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

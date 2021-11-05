@@ -3,7 +3,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CCSB_Groepje5.Migrations
 {
+<<<<<<< HEAD:CCSB_Groepje5/Migrations/20211104110005_start again.cs
     public partial class startagain : Migration
+=======
+    public partial class hallo : Migration
+>>>>>>> jayden_danny_fokkink:CCSB_Groepje5/Migrations/20211006125349_hallo.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,12 +17,20 @@ namespace CCSB_Groepje5.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+<<<<<<< HEAD:CCSB_Groepje5/Migrations/20211104110005_start again.cs
+=======
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+>>>>>>> jayden_danny_fokkink:CCSB_Groepje5/Migrations/20211006125349_hallo.cs
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Duration = table.Column<int>(type: "int", nullable: false),
                     AdminId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+<<<<<<< HEAD:CCSB_Groepje5/Migrations/20211104110005_start again.cs
                     VehicleId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+=======
+>>>>>>> jayden_danny_fokkink:CCSB_Groepje5/Migrations/20211006125349_hallo.cs
                     IsAdminApproved = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

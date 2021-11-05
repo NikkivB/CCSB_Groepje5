@@ -1,8 +1,12 @@
-﻿var routeURL = location.protocol + "//" + location.host;
+﻿var today = new Date();
+var todayDate = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
+
+var routeURL = location.protocol + "//" + location.host;
 $(document).ready(function () {
     $("#appointmentDate").kendoDateTimePicker({
-        value: new Date(),
-        dateInput: false
+        value: today,
+        dateInput: false,
+        min: today
     });
     InitializeCalendar();
 });
@@ -71,6 +75,7 @@ function onSubmitForm() {
         }
     });
 }
+
 function checkValidation() {
     var isValid = true;
     if ($("#title").val() === undefined || $("#title").val().trim() === "") {
@@ -79,7 +84,7 @@ function checkValidation() {
     } else {
         $("#title").removeClass("error");
     }
-    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "") {
+    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "" || $("#appointmentDate").val().trim() < todayDate){
         isValid = false;
         $("#appointmentDate").addClass("error");
     } else {
