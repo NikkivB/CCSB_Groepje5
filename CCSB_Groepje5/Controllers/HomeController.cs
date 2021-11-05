@@ -6,6 +6,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using MimeKit;
+using MailKit.Net.Smtp;
+using System.Net.Mime;
+using System.Net.Mail;
+using System.Web;
+using SmtpClient = System.Net.Mail.SmtpClient;
 
 namespace CCSB_Groepje5.Controllers
 {
@@ -20,6 +26,7 @@ namespace CCSB_Groepje5.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 

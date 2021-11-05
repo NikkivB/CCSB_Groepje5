@@ -1,12 +1,13 @@
 ﻿var today = new Date();
-var todayDate = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
+
+var todayDate = (today.getMonth() + 1) + '/' + today.getDate() +  '/' + today.getFullYear();
 
 var routeURL = location.protocol + "//" + location.host;
 $(document).ready(function () {
     $("#appointmentDate").kendoDateTimePicker({
-        value: today,
+        value: new Date(),
         dateInput: false,
-        min: today
+        min: new Date()
     });
     InitializeCalendar();
 });
@@ -28,6 +29,7 @@ function InitializeCalendar() {
                 editable: false,
                 select: function (event) {
                     onShowModal(event, null);
+
                 }
             });
             calendar.render();
@@ -37,6 +39,7 @@ function InitializeCalendar() {
         alert(e);
     }
 }
+
 function onShowModal(obj, _isEventDeail) {
     $('#appointmentInput').modal("show");
 }
@@ -85,6 +88,12 @@ function checkValidation() {
         $("#title").removeClass("error");
     }
     if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "" || $("#appointmentDate").val().trim() < todayDate){
+        isValid = false;
+        $("#appointmentDate").addClass("error");
+    } else {
+        $("#appointmentDate").removeClass("error");
+    }
+    if ($("#appointmentDate").val().trim() < todayDate) {
         isValid = false;
         $("#appointmentDate").addClass("error");
     } else {
