@@ -1,8 +1,39 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@{ ViewData["Title"] = "Home Page"; }
+<html lang="nl">
+<head>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+</head>
+<body>
+    <h1 class="titleHeader">Contact</h1>
+    <p class="text-center">Wij zijn bereikbaar via bellen of WhatsApp.</p>
+    <p class="text-center">Telefonisch alleen bereikbaar tussen 18:00 en 22:00.</p>
+    <br />
+    <p class="text-center">Telefoonnummer: 06 12345678</p>
+    <div class="divider1">
+        <div class="div1left">
+
+            @*Hieronder staat alles over de div "over ons"*@
+
+            <h3 class="titleHeader">Over ons</h3>
+            <p class="textInDiv">
+                Het bedrijf was vroeger een pluimvee bedrijf, <br />
+                dit bedrijf is ondertussen opgelegd en
+                is nu een stalling geworden voor campers en caravans. <br />
+                Dit bedrijf is hiernaast ook overgenomen door
+                de zoon van meneer van der Stal.<br />
+                Dit bedrijf is een nevenfunctie voor meneer van der Stal,<br />
+                daardoor zal je alleen ’s avonds contact opnemen.
+            </p>
+        </div>
+        <div class="div1right">
+            <img src="~/images/camper1.jpg" alt="Picture of a camper">
+        </div>
+    </div>
+    <br />
+    <h1 class="titleHeader">Beschikbare plekken</h1>
+    <p class="text-center">Momenteel zijn er 60 plekken in totaal verdeeld over 3 verschillende hallen.</p>
+    <br />
+    <p class="text-center">Er zijn 25 plekken beschikbaar op dit moment.</p>
+    <p class="text-center">Neem contact op voor verdere informatie over andere data.</p>
+</body>
+</html>
