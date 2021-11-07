@@ -80,6 +80,10 @@ body {
     border-color: #8CD2A4 !important;
 }
 
+li.nav-item {
+    padding: 0 1rem;
+}
+
 .panel-heading-custom {
     width: 100%;
     margin-left: -13px;
