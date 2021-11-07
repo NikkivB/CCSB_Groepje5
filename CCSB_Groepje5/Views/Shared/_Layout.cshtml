@@ -13,28 +13,66 @@
     <link href="~/lib/select2/css/select2.css" rel="stylesheet" />
 </head>
 <body>
-   
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <img src="~/images/logo_ccsb.png" id="logo"/>
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+    <header class="navbar-light bg-green border-bottom box-shadow mb-3 pt-3">
+        <img src="~/images/logo_ccsb.png" id="logo" class="mb-1" />
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Over ons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mijn stalling</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Prijzen</a>
+                    </li>
+                </ul>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="bg-green">
+        <div class="container-fluid py-5">
+            <div class="row no-guters">
+                <div class="offset-md-1 col-md-2 col-sm-6">
+                    <h2>Locatie</h2>
+                    <p>Beethovenlaan 144<br />
+                    7442 HG Nijverdal</p>
+                <p>Tel: 0612345678</p>
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <img src="~/images/map.png" class="mb-1 w-100" />
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h2>Openingstijden</h2>
+                    <p>Maandag:<br/>
+                    Dinsdag:<br/>
+                    Woensdag:<br/>
+                    Donderdag:<br/>
+                    Vrijdag:<br/>
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-6 px-5"><img src="~/images/logo_ccsb.png" class="mb-1 w-100" /></div>
+            </div>
+        </div>
         <div class="container">
             &copy; 2021 - CCSB_Groepje5 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

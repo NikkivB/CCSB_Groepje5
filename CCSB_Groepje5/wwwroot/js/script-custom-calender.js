@@ -5,6 +5,8 @@ $(document).ready(function () {
         dateInput: false
     });
     InitializeCalendar();
+
+
 });
 var calendar;
 function InitializeCalendar() {
@@ -24,7 +26,8 @@ function InitializeCalendar() {
                 editable: false,
                 select: function (event) {
                     onShowModal(event, null);
-                }
+                },
+
             });
             calendar.render();
         }

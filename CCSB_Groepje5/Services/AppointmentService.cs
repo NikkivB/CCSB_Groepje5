@@ -24,7 +24,7 @@ namespace CCSB_Groepje5.Services
             var endDate = startDate.AddMinutes(Convert.ToDouble(model.Duration));
                 if (model != null && model.Id > 0)
             {
-                //TODO: Add code fot update appointment
+                //TODO: Add code fo update appointment
                 return 1;
             }
             else
