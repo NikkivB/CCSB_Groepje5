@@ -1,27 +1,61 @@
 ﻿@model CCSB_Groepje5.Models.ViewModels.LoginViewModel
+@foreach (var product in ViewBag.User)
+{
+    <div class="container text-center my-4">
+        <h1 class="pb-4">
+            Gegevens
+        </h1>
+        <h4>
+            Hallo @product.FirstName
+        </h4>
 
-<div class="container text-center my-4">
-    <h1 class="pb-4">
-        Gegevens
-    </h1>
-    <h4>
-        Hallo @*model.Name*@
-    </h4>
+        <table border="1">
 
-    <table border="1">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Status</th>
-        </tr>
-        @foreach (var product in ViewBag.User)
-        {
+            @*@foreach (var product in ViewBag.User)
+                {*@
             <tr>
-                <td>@product.Id</td>
+                <th>Voornaam</th>
                 <td>@product.FirstName</td>
             </tr>
-        }
-    </table>
-</div>
+            @if (product.Middlename != null)
+            {
+                <tr>
+                    <th>Tussenvoegsel</th>
+                    <td>@product.Middlename</td>
+                </tr>
+            }
+            <tr>
+                <th>Achternaam</th>
+                <td>@product.LastName</td>
+            </tr>
+            <tr>
+                <th>Telefoonnummer</th>
+                <td>@product.PhoneNumber</td>
+            </tr>
+            <tr>
+                <th>Geboortedatum</th>
+                <td>@product.Birthdate</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>@product.Email</td>
+            </tr>
+            <tr>
+                <th>Adres</th>
+                <td>@product.Adress</td>
+            </tr>
+            <tr>
+                <th>Postcode</th>
+                <td>@product.Postalcode</td>
+            </tr>
+            <tr>
+                <th>Woonplaats</th>
+                <td>@product.City</td>
+            </tr>
+            <tr>
+                <th>Bankrekening nummer</th>
+                <td>Om uw rekeningnummer in te zien moet u contact opnemen met de eigenaar.</td>
+            </tr>
+        </table>
+    </div>
+}

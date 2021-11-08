@@ -56,7 +56,7 @@ namespace CCSB_Groepje5.Controllers
 
         public IActionResult UserDataPage()
         {
-            ViewBag.User = _db.Users.ToList();
+            ViewBag.User = _db.Users.Where(x => x.Email == User.Identity.Name).ToList();
             return View();
         }
 
