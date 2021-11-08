@@ -1,26 +1,26 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CCSB_Groepje5</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css" />
-    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css" />
-    <link href="~/lib/select2/css/select2.css" rel="stylesheet" />
-</head>
-<body>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - CCSB_Groepje5</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css" />
+        <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css" />
+        <link href="~/lib/select2/css/select2.css" rel="stylesheet" />
+    </head>
+    <body>
 
-    <header class="navbar-light bg-green border-bottom box-shadow mb-3 pt-3">
-        <img src="~/images/logo_ccsb.png" id="logo" class="mb-1" />
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+        <header class="navbar-light bg-green border-bottom box-shadow mb-3 pt-3">
+            <img src="~/images/logo_ccsb.png" id="logo" class="mb-1" />
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -31,11 +31,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Over ons</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Mijn stalling</a>
+                    <li>
+                       <a class="nav-link" asp-action="Prices" asp-controller="Home">Mijn stalling</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Prijzen</a>
+                        <a class="nav-link" asp-action="Prices" asp-controller="Home">Prijzen</a>
                     </li>
                 </ul>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
@@ -44,52 +44,55 @@
             </div>
         </nav>
 
-    </header>
+        </header>
 
-    <main role="main">
-        @RenderBody()
-    </main>
+        <main role="main">
+            @RenderBody()
+        </main>
 
-    <footer class="bg-green">
-        <div class="container-fluid py-5">
-            <div class="row no-guters">
-                <div class="offset-md-1 col-md-2 col-sm-6">
-                    <h2>Locatie</h2>
-                    <p>Beethovenlaan 144<br />
-                    7442 HG Nijverdal</p>
-                <p>Tel: 0612345678</p>
+        <footer class="bg-green">
+            <div class="container-fluid py-5">
+                <div class="row no-guters">
+                    <div class="offset-md-1 col-md-2 col-sm-6">
+                        <h2>Locatie</h2>
+                        <p>
+                            Beethovenlaan 144<br />
+                            7442 HG Nijverdal
+                        </p>
+                        <p>Tel: 0612345678</p>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <img src="~/images/map.png" class="mb-1 w-100" />
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <h2>Openingstijden</h2>
+                        <p>
+                            Maandag:<br />
+                            Dinsdag:<br />
+                            Woensdag:<br />
+                            Donderdag:<br />
+                            Vrijdag:<br />
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-sm-6 px-5"><img src="~/images/logo_ccsb.png" class="mb-1 w-100" /></div>
                 </div>
-                <div class="col-md-2 col-sm-6">
-                    <img src="~/images/map.png" class="mb-1 w-100" />
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <h2>Openingstijden</h2>
-                    <p>Maandag:<br/>
-                    Dinsdag:<br/>
-                    Woensdag:<br/>
-                    Donderdag:<br/>
-                    Vrijdag:<br/>
-                    </p>
-                </div>
-                <div class="col-md-3 col-sm-6 px-5"><img src="~/images/logo_ccsb.png" class="mb-1 w-100" /></div>
             </div>
-        </div>
-        <div class="container">
-            &copy; 2021 - CCSB_Groepje5 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+            <div class="container">
+                &copy; 2021 - CCSB_Groepje5 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
 
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script type="text/javascript" src="~/lib/select2/js/select2.full.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales/nl.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
-    <script type="text/javascript" src="~/js/notify.min.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/lib/select2/js/select2.full.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales/nl.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
+        <script type="text/javascript" src="~/js/notify.min.js"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
 </html>
