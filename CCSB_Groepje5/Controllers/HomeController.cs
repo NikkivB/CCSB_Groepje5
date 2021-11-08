@@ -30,6 +30,12 @@ namespace CCSB_Groepje5.Controllers
             return View();
         }
 
+        public IActionResult Prices()
+        {
+
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
