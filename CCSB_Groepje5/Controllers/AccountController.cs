@@ -54,6 +54,11 @@ namespace CCSB_Groepje5.Controllers
             return RedirectToAction("Login");
         }
 
+        public IActionResult UserDataPage()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
