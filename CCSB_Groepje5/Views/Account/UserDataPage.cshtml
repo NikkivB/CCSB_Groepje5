@@ -1,8 +1,27 @@
-﻿<div class="container text-center my-4">
+﻿@model CCSB_Groepje5.Models.ViewModels.LoginViewModel
+
+<div class="container text-center my-4">
     <h1 class="pb-4">
         Gegevens
     </h1>
     <h4>
         Hallo @*model.Name*@
     </h4>
+
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Status</th>
+        </tr>
+        @foreach (var product in ViewBag.User)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.FirstName</td>
+            </tr>
+        }
+    </table>
 </div>

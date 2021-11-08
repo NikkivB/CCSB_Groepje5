@@ -56,6 +56,7 @@ namespace CCSB_Groepje5.Controllers
 
         public IActionResult UserDataPage()
         {
+            ViewBag.User = _db.Users.ToList();
             return View();
         }
 
