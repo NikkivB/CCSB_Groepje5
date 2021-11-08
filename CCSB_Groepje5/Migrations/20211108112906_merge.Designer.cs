@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CCSB_Groepje5.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211104110814_birthdate")]
-    partial class birthdate
+    [Migration("20211108112906_merge")]
+    partial class merge
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
