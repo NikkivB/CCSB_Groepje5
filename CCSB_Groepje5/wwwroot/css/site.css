@@ -61,11 +61,17 @@ html {
 }
 
 body {
-    /* Margin bottom by footer height */
-    margin-bottom: 150px;
+    width: 100vw;
+    max-width: 100vw;
+    background-color: white;
+    font-family: Verdana;
+    font-style: normal;
 }
 
 
+h1 {
+    color: #87c9af;
+}
 
 .error {
     border: 1px solid red !important;
@@ -81,7 +87,7 @@ body {
 }
 
 li.nav-item {
-    padding: 0 1rem;
+    padding:0 1rem;
 }
 
 .panel-heading-custom {
@@ -152,167 +158,47 @@ li.nav-item {
     display: block;
 }
 
-.bg-color{
+#logo {
+    width: 200px;
+    position: relative;
+    margin: 0 auto;
+    display: inherit;
+}
+
+.bg-green {
     background-color: #8CD2A4 !important;
 }
 
 /*header css*/
 
-.header-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    padding-top: 5px;
+*{
+    padding: 0;
+    margin: 0;
 }
 
-.header-grid-1 {
-    grid-column-start: 1;
-    grid-column-end: 1;
-}
-
-.header-grid-2 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-}
-
-.header-grid-3 {
-    grid-column-start: 3;
-    grid-column-end: 3;
-}
-
-#bentelo-titel{
+.titleHeader {
+    color: white;
     text-align: center;
 }
 
-/*home index*/
-
-.home-grid {
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
-}
-
-.home-grid-1 {
-    grid-row-start: 1;
-    grid-row-end: 1;
+body{
     background-color: white;
+    overflow-x:hidden;
 }
 
-.home-grid-2 {
-    grid-row-start: 2;
-    grid-row-end: 2;
+.greybg {
+    background-color: #4f4e46;
+}
+
+.container-fluid{
+    overflow-x:hidden;
+}
+
+.divider1 {
+    padding: 0;
+    background-color: white;
     color: white;
-    background-color: #4F4E46;
-    margin: 0 !important;
-}
-
-.home-grid-3 {
-    grid-row-start: 3;
-    grid-row-end: 3;
-    background-color: white;
-}
-
-.home-grid-img {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-auto-columns: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    margin-top: 15px;
-    margin-bottom:25px;
-    padding-bottom: 25px;
-}
-
-.h-grid-img-1 {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    padding-left: 20px;
-}
-
-.h-grid-img-2 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    padding-left:50px;
-}
-
-.home-center{
-    text-align:center;
-}
-
-.home-h1{
-    margin: 20px 20px 15px 20px;
-}
-
-#camper-1{
-    height: 250px;
-}
-
-
-/*footer css*/
-
-.footer {
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
-    background-color: #8CD2A4 !important;
-    border-color: #8CD2A4;
-}
-
-/*hier word een grid aangemaakt die wordt gebruikt voor de footer*/
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.1fr 0.9fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    padding-top: 5px;
-}
-
-/*hier staat de css voor de apparte grid colommen*/
-.footer-grid-1 {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    padding-left: 10px;
-}
-
-.footer-grid-2 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-}
-
-.footer-grid-3 {
-    grid-column-start: 3;
-    grid-column-end: 3;
-}
-
-.footer-grid-4 {
-    grid-column-start: 4;
-    grid-column-end: 4;
-}
-
-/*footer css van ID's*/
-#logo {
-    margin:25px;
-    margin-left: 40px;
-    height: 75px;
-    grid-row: 4;
-}
-
-#kaart {
-    width: 140px;
-    height: 140px;
-}
-
-/*other*/
-.main-c {
-    color: #8CD2A4;
-}
-
-* {
-    font-family: Verdana;
+    height: 100%;
+    margin: 0;
 }

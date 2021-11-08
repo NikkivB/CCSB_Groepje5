@@ -10,6 +10,8 @@ $(document).ready(function () {
         min: new Date()
     });
     InitializeCalendar();
+
+
 });
 var calendar;
 function InitializeCalendar() {
