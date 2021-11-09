@@ -51,11 +51,12 @@ function onCloseModal() {
 }
 
 function onSubmitForm() {
-    /*if (!checkValidation()) return;*/
+    if (!checkValidation()) return;
     var requestData = {
         CustomerId: $("#customerId").val(),
         VehicleId: $("#VehicleId").val(),
         StartDate: $("#appointmentDate").val(),
+        EndDate: $("#appointmentDate").val(),
     };
 
     $.ajax({
