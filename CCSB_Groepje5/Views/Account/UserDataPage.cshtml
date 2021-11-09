@@ -1,56 +1,53 @@
 ﻿@model CCSB_Groepje5.Models.ViewModels.LoginViewModel
-@foreach (var product in ViewBag.User)
+@foreach (var user in ViewBag.User)
 {
     <div class="container text-center my-4">
         <h1 class="pb-4">
             Gegevens
         </h1>
         <h4>
-            Hallo @product.FirstName
+            Hallo @user.FirstName
         </h4>
 
-        <table border="1">
-
-            @*@foreach (var product in ViewBag.User)
-                {*@
+        <table border="0">
             <tr>
                 <th>Voornaam</th>
-                <td>@product.FirstName</td>
+                <td>@user.FirstName</td>
             </tr>
-            @if (product.Middlename != null)
+            @if (user.Middlename != null)
             {
                 <tr>
                     <th>Tussenvoegsel</th>
-                    <td>@product.Middlename</td>
+                    <td>@user.Middlename</td>
                 </tr>
             }
             <tr>
                 <th>Achternaam</th>
-                <td>@product.LastName</td>
+                <td>@user.LastName</td>
             </tr>
             <tr>
                 <th>Telefoonnummer</th>
-                <td>@product.PhoneNumber</td>
+                <td>@user.PhoneNumber</td>
             </tr>
             <tr>
                 <th>Geboortedatum</th>
-                <td>@product.Birthdate</td>
+                <td>@user.Birthdate</td>
             </tr>
             <tr>
                 <th>Email</th>
-                <td>@product.Email</td>
+                <td>@user.Email</td>
             </tr>
             <tr>
                 <th>Adres</th>
-                <td>@product.Adress</td>
+                <td>@user.Adress</td>
             </tr>
             <tr>
                 <th>Postcode</th>
-                <td>@product.Postalcode</td>
+                <td>@user.Postalcode</td>
             </tr>
             <tr>
                 <th>Woonplaats</th>
-                <td>@product.City</td>
+                <td>@user.City</td>
             </tr>
             <tr>
                 <th>Bankrekening nummer</th>
