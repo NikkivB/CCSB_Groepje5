@@ -31,14 +31,15 @@ namespace CCSB_Groepje5.Services
             else
             {
                 //Create appointment based on viewmodel
-                Appointment appointment = new Appointment()
+                Appointment Appointment = new Appointment()
                 {
                     CustomerId = model.CustomerId,
                     StartDate = startDate,
-                    EndDate = endDate
+                    EndDate = endDate,
+                    VehicleId = model.VehicleId
                         
                 };
-                _db.Appointments.Add(appointment);
+                _db.Appointments.Add(Appointment);
                 await _db.SaveChangesAsync();
                 return 2;
             }
