@@ -39,6 +39,8 @@ namespace CCSB_Groepje5.Controllers
             return customers;
         }
 
+        
+
         public IActionResult Index()
         {
             ViewBag.CustomerList = _IVehicleService.GetCustomerList();
@@ -46,7 +48,14 @@ namespace CCSB_Groepje5.Controllers
             return View();
         }
 
-       
+        public IActionResult VehicleList()
+        {
+            ViewBag.VehicleList = _IVehicleService.GetVehicleList();
+
+            return View();
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(RegisterVehicleViewModel model)
