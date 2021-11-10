@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (User.IsInRole("Beheerder"))
+{
+
+<div class="row">
+    <div class="offset-4 col-md-4">     
+        <h1>Alle voertuigen</h1>
+        <p>selecteer een van de voertuigen om verder te gaan</p>
+        <select name="VehicleId" id="VehicleId" asp-items="@(new SelectList(ViewBag.VehicleList, "Id", "LicensePlate"))" class="form-control"></select>
+        <br/>
+        <input type="submit" value="Registreren" class="btn btn-primary" />
+        <input type="submit" value="aanpassen" class="btn btn-primary" />
+        <input type="submit" value="verwijderen" class="btn btn-primary" />
+        <br/>
+    </div>
+</div>
+
+}

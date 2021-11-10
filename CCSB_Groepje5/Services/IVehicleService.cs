@@ -9,6 +9,7 @@ namespace CCSB_Groepje5.Services
     public interface IVehicleService
     {
         public List<CustomerViewModel> GetCustomerList();
-        
+        public List<VehicleViewModel> GetVehicleList();
+
     }
 }

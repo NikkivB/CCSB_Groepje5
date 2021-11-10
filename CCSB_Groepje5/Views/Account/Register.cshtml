@@ -1,5 +1,8 @@
 ﻿@model CCSB_Groepje5.Models.ViewModels.RegisterViewModel
 
+@if (User.IsInRole("Beheerder"))
+{
+
     <div class="row">
         <div class="col-md-9 offset-md-1 py-10">
             <h2>Registreren</h2>
@@ -119,8 +122,9 @@
                     </div>
                 </div>
             </form>
-            </div>
         </div>
-            @section Scripts{
+    </div>
+    @section Scripts{
                 <partial name="_ValidationScriptsPartial" />
+            }
             }
