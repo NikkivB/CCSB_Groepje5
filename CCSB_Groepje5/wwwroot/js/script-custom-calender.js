@@ -1,13 +1,13 @@
 ﻿var today = new Date();
 
-var todayDate = today.getMonth() + '/' + (today.getDate() + 2) +  '/' + today.getFullYear();
+var todayDate = (today.getMonth() + 1) + '/' + (today.getDate() + 2) + '/' + today.getFullYear();
 
 var routeURL = location.protocol + "//" + location.host;
 $(document).ready(function () {
     $("#appointmentDate").kendoDateTimePicker({
-        value: new Date(),
+        value: todayDate,
         dateInput: false,
-        min: new Date()
+        min: todayDate,
     });
     InitializeCalendar();
 
@@ -81,12 +81,6 @@ function onSubmitForm() {
 function checkValidation() {
     var isValid = true;
     if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "") {
-        isValid = false;
-        $("#appointmentDate").addClass("error");
-    } else {
-        $("#appointmentDate").removeClass("error");
-    }
-    if ($("#appointmentDate").val().trim() < todayDate) {
         isValid = false;
         $("#appointmentDate").addClass("error");
     } else {

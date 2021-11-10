@@ -202,3 +202,5 @@ body{
     height: 100%;
     margin: 0;
 }
+
+.k-widget.k-datetimepicker.form-control input { pointer-events: none; }

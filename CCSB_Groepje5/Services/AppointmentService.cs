@@ -2,10 +2,12 @@
 using CCSB_Groepje5.Models.ViewModels;
 using CCSB_Groepje5.Utility;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace CCSB_Groepje5.Services
@@ -23,7 +25,7 @@ namespace CCSB_Groepje5.Services
         {
             var startDate = DateTime.Parse(model.StartDate, CultureInfo.CreateSpecificCulture("en-US"));
             var endDate = startDate.AddMinutes(Convert.ToDouble(model.Duration));
-                if (model != null && model.Id > 0)
+            if (model != null && model.Id > 0)
             {
                 //TODO: Add code for update appointment
                 return 1;
@@ -37,13 +39,13 @@ namespace CCSB_Groepje5.Services
                     StartDate = startDate,
                     EndDate = endDate,
                     VehicleId = model.VehicleId
-                        
+
                 };
                 _db.Appointments.Add(Appointment);
                 await _db.SaveChangesAsync();
                 return 2;
             }
-            }
+        }
 
         public List<AdminViewModel> GetAdminList()
         {
