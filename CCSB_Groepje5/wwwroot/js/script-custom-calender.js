@@ -1,13 +1,13 @@
 ﻿var today = new Date();
 
-var todayDate = (today.getMonth() + 1) + '/' + today.getDate() +  '/' + today.getFullYear();
+var todayDate = (today.getMonth() + 1) + '/' + (today.getDate() + 2) + '/' + today.getFullYear();
 
 var routeURL = location.protocol + "//" + location.host;
 $(document).ready(function () {
     $("#appointmentDate").kendoDateTimePicker({
-        value: new Date(),
+        value: todayDate,
         dateInput: false,
-        min: new Date()
+        min: todayDate,
     });
     InitializeCalendar();
 
@@ -53,13 +53,10 @@ function onCloseModal() {
 function onSubmitForm() {
     if (!checkValidation()) return;
     var requestData = {
-        Id: parseInt($("id").val()),
-        Title: $("#title").val(),
-        Description: $("#description").val(),
-        StartDate: $("#appointmentDate").val(),
-        Duration: $("#duration").val(),
-        AdminId: $("#adminId").val(),
         CustomerId: $("#customerId").val(),
+        VehicleId: $("#VehicleId").val(),
+        StartDate: $("#appointmentDate").val(),
+        EndDate: $("#appointmentDate").val(),
     };
 
     $.ajax({
@@ -83,19 +80,7 @@ function onSubmitForm() {
 
 function checkValidation() {
     var isValid = true;
-    if ($("#title").val() === undefined || $("#title").val().trim() === "") {
-        isValid = false;
-        $("#title").addClass("error");
-    } else {
-        $("#title").removeClass("error");
-    }
-    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "" || $("#appointmentDate").val().trim() < todayDate){
-        isValid = false;
-        $("#appointmentDate").addClass("error");
-    } else {
-        $("#appointmentDate").removeClass("error");
-    }
-    if ($("#appointmentDate").val().trim() < todayDate) {
+    if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val().trim() === "") {
         isValid = false;
         $("#appointmentDate").addClass("error");
     } else {
