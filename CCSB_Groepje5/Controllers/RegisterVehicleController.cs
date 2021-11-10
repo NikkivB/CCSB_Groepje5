@@ -22,8 +22,7 @@ namespace CCSB_Groepje5.Controllers
             _db = db;
         }
 
-        /// <summary>Gets the customer list.</summary>
-       
+        //Get a list of customers
         public List<CustomerViewModel> GetCustomerList()
         {
             var customers = (from user in _db.Users
@@ -46,13 +45,15 @@ namespace CCSB_Groepje5.Controllers
 
             return View();
         }
+
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(RegisterVehicleViewModel model)
         {
             ViewBag.CustomerList = _IVehicleService.GetCustomerList();
 
-           
+           //creating a new vehicle based on the input in the RegisterVehicle/Index.
                 Vehicle v = new Vehicle();
                 v.LicensePlate = model.LicensePlate;
                 v.VehicleType = model.VehicleType;
@@ -62,6 +63,7 @@ namespace CCSB_Groepje5.Controllers
                 _db.Vehicles.Add(v);
                 _db.SaveChanges();
             
+            //displays what the license plate number was of the added vehicle
                 ViewBag.message = "Het voertuig met kentekenplaat: '" + model.LicensePlate + "' is toegevoegd!";
             
 

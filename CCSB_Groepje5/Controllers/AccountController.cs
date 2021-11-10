@@ -54,6 +54,14 @@ namespace CCSB_Groepje5.Controllers
             return RedirectToAction("Login");
         }
 
+        //view for the information of the logged in user
+        public IActionResult UserDataPage()
+        {
+            //getting data from ApplicationUser table based on the logged in user
+            ViewBag.User = _db.Users.Where(x => x.Email == User.Identity.Name).ToList();
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
