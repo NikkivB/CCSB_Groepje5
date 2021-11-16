@@ -61,7 +61,7 @@ namespace CCSB_Groepje5.Controllers
             ViewBag.User = _db.Users.Where(x => x.Email == User.Identity.Name).ToList();
             return View();
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)

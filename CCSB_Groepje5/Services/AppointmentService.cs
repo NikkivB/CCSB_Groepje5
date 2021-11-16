@@ -39,7 +39,6 @@ namespace CCSB_Groepje5.Services
                     StartDate = startDate,
                     EndDate = endDate,
                     VehicleId = model.VehicleId
-
                 };
                 _db.Appointments.Add(Appointment);
                 await _db.SaveChangesAsync();

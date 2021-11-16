@@ -52,7 +52,14 @@ namespace CCSB_Groepje5.Controllers
         public IActionResult Index(RegisterVehicleViewModel model)
         {
             ViewBag.CustomerList = _IVehicleService.GetCustomerList();
-
+            /*
+             Rabia's Kenteken maken - bezig!
+            
+            if (model.LicensePlate = 3 )
+            {
+                print: model.LicensePlate
+            };
+            */
            //creating a new vehicle based on the input in the RegisterVehicle/Index.
                 Vehicle v = new Vehicle();
                 v.LicensePlate = model.LicensePlate;
