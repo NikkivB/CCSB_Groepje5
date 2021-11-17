@@ -26,7 +26,7 @@ namespace CCSB_Groepje5.Controllers
         public IActionResult AddPrice(PricesViewModel model)
         {
             var today = DateTime.Now;
-            var admin = User.Identity.Name;
+            var admin = User.Identity.Name.ToString();
 
             Price p = new Price();
             p.VehicleType = model.VehicleType;
