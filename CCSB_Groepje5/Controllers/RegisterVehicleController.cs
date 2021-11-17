@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
+using MailKit.Net.Smtp;
 
 namespace CCSB_Groepje5.Controllers
 {
@@ -46,24 +48,49 @@ namespace CCSB_Groepje5.Controllers
 
             return View();
         }
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index(RegisterVehicleViewModel model)
+        public IActionResult Index(RegisterVehicleViewModel model, RegisterViewModel model1)
         {
             ViewBag.CustomerList = _IVehicleService.GetCustomerList();
 
-           
-                Vehicle v = new Vehicle();
-                v.LicensePlate = model.LicensePlate;
-                v.VehicleType = model.VehicleType;
-                v.SurfaceTaken = model.SurfaceTaken;
-                v.CustomerId = model.CustomerId;
+            //creating a new vehicle based on the input in the RegisterVehicle/Index.
+            Vehicle v = new Vehicle();
+            v.LicensePlate = model.LicensePlate;
+            v.VehicleType = model.VehicleType;
+            v.SurfaceTaken = model.SurfaceTaken;
+            v.CustomerId = model.CustomerId;
 
-                _db.Vehicles.Add(v);
-                _db.SaveChanges();
-            
-                ViewBag.message = "Het voertuig met kentekenplaat: '" + model.LicensePlate + "' is toegevoegd!";
-            
+            _db.Vehicles.Add(v);
+            _db.SaveChanges();
+
+                var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Registratie voertuig", "Groepje_5@gmail.com"));
+            message.To.Add(new MailboxAddress(model1.FirstName, model1.Email));
+            message.Subject = "Bedankt voor het registreren van het voertuig";
+            message.Body = new TextPart("plain")
+            {
+                Text = "Beste " + model1.FirstName + ",\n" + "Er is zojuist een voertuig geregistreerd bij camper-en carvan stalling Bentelo. " +
+                "Dit is een overzicht van uw registratie:" + "\n" + "Nummerplaat: " + model.LicensePlate + "\n" + "Voertuigtype: " + model.VehicleType
+                + "\n" + "Lengte van het voertuig: " + model.SurfaceTaken + "\n" + "\n" + "Als deze gegevens niet kloppen of als dit email niet voor u bestemd is, kan je altijd bellen naar: 0687654321" + "\n" +
+                            "Met vriendelijke groet," + "\n" + "CCBS"
+            };
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 587, false);
+                client.Authenticate("campergroepje5@gmail.com", "Test123#");
+
+                client.Send(message);
+
+                client.Disconnect(true);
+            }
+
+            //displays what the license plate number was of the added vehicle
+            ViewBag.message = "Het voertuig met kentekenplaat: '" + model.LicensePlate + "' is toegevoegd!";
+
 
             return View();
         }

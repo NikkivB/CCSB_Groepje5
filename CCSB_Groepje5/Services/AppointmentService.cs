@@ -2,12 +2,10 @@
 using CCSB_Groepje5.Models.ViewModels;
 using CCSB_Groepje5.Utility;
 using Microsoft.EntityFrameworkCore;
-using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace CCSB_Groepje5.Services
@@ -41,6 +39,7 @@ namespace CCSB_Groepje5.Services
                     VehicleId = model.VehicleId
 
                 };
+
                 _db.Appointments.Add(Appointment);
                 await _db.SaveChangesAsync();
                 return 2;

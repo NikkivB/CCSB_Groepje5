@@ -97,8 +97,7 @@ namespace CCSB_Groepje5.Controllers
                             client.Send(message);
 
                             client.Disconnect(true);
-                        }
-
+                        }           
 
                     await _userManager.AddToRoleAsync(user, model.RoleName);
                     await _signInManager.SignInAsync(user, isPersistent: false);
