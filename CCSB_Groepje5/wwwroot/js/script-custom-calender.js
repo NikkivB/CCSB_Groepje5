@@ -5,9 +5,9 @@ var todayDate = (today.getMonth() + 1) + '/' + (today.getDate() + 2) + '/' + tod
 var routeURL = location.protocol + "//" + location.host;
 $(document).ready(function () {
     $("#appointmentDate").kendoDateTimePicker({
-        value: todayDate,
+        //format: "dd/MM/yyyy hh:mm",
         dateInput: false,
-        min: todayDate,
+        min: todayDate
     });
     InitializeCalendar();
 
