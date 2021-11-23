@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 namespace CCSB_Groepje5.Models.ViewModels
 {
     public class RegisterViewModel
+
+
     {
+
+
         //volledige naam
         [DisplayName("Voornaam")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
@@ -33,6 +37,7 @@ namespace CCSB_Groepje5.Models.ViewModels
         public string Adress { get; set; }
 
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
+        [RegularExpression("[1-9][0-9]{3}[A-Z]{2}", ErrorMessage = "Voer een geldige postcode in.")]
         [DisplayName("Postcode")]
         public string Postalcode { get; set; }
 
