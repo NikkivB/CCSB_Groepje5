@@ -39,5 +39,11 @@ namespace CCSB_Groepje5.Controllers
 
             return View(p);
         }
+
+        public IActionResult ShowPrice()
+        {
+            ViewBag.PriceCamper = _db.Prices.Where(x => x.VehicleType == "Camper");
+            return View();
+        }
     }
 }
