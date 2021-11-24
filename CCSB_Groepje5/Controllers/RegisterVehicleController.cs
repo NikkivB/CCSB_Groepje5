@@ -57,6 +57,9 @@ namespace CCSB_Groepje5.Controllers
         {
             ViewBag.CustomerList = _IVehicleService.GetCustomerList();
 
+            ViewBag.User = _db.Users.Where(x => x.Email == User.Identity.Name).ToList();
+            ViewBag.User = _db.Users.Where(x => x.FirstName == model1.FirstName).ToList();
+
             //creating a new vehicle based on the input in the RegisterVehicle/Index.
             Vehicle v = new Vehicle();
             v.LicensePlate = model.LicensePlate;
@@ -67,29 +70,34 @@ namespace CCSB_Groepje5.Controllers
             _db.Vehicles.Add(v);
             _db.SaveChanges();
 
-                var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Registratie voertuig", "Groepje_5@gmail.com"));
-            message.To.Add(new MailboxAddress(model1.FirstName, model1.Email));
-            message.Subject = "Bedankt voor het registreren van het voertuig";
-            message.Body = new TextPart("plain")
-            {
-                Text = "Beste " + model1.FirstName + ",\n" + "Er is zojuist een voertuig geregistreerd bij camper-en carvan stalling Bentelo. " +
-                "Dit is een overzicht van uw registratie:" + "\n" + "Nummerplaat: " + model.LicensePlate + "\n" + "Voertuigtype: " + model.VehicleType
-                + "\n" + "Lengte van het voertuig: " + model.SurfaceTaken + "\n" + "\n" + "Als deze gegevens niet kloppen of als dit email niet voor u bestemd is, kan je altijd bellen naar: 0687654321" + "\n" +
-                            "Met vriendelijke groet," + "\n" + "CCBS"
-            };
-            using (var client = new SmtpClient())
-            {
-                client.Connect("smtp.gmail.com", 587, false);
-                client.Authenticate("campergroepje5@gmail.com", "Test123#");
+            //    var message = new MimeMessage();
+            //System.Net.Mime.ContentType contentType = new System.Net.Mime.ContentType();
+            //contentType.MediaType = System.Net.Mime.MediaTypeNames.Application.Octet;
+            //contentType.Name = "test.docx";
+            //message.Attachments.Add(new System.Net.Mail.Attachment("I:/files/test.docx", contentType));
+            //message.From.Add(new MailboxAddress("Registratie voertuig", "Groepje_5@gmail.com"));
+            //message.To.Add(new MailboxAddress(model1.FirstName, User.Identity.Name));
+            //message.Subject = "Bedankt voor het registreren van het voertuig";
+            //message.Body = new TextPart("plain")
+            //{
+            //    Text = "Beste " + model1.FirstName + ",\n" + "Er is zojuist een voertuig geregistreerd bij camper-en carvan stalling Bentelo. " +
+            //    "Dit is een overzicht van uw registratie:" + "\n" + "Nummerplaat: " + model.LicensePlate + "\n" + "Voertuigtype: " + model.VehicleType
+            //    + "\n" + "Lengte van het voertuig: " + model.SurfaceTaken + " meter" + "\n" + "\n" + "Als deze gegevens niet kloppen of als deze email niet voor u bestemd is, kan je altijd bellen naar: 0687654321" + "\n" +
+            //                "Met vriendelijke groet," + "\n" + "CCBS"
+            //};
+            //using (var client = new SmtpClient())
+            //{
+                
+            //    client.Connect("smtp.gmail.com", 587, false);
+            //    client.Authenticate("campergroepje5@gmail.com", "Test123#");
 
-                client.Send(message);
+            //    client.Send(message);
 
-                client.Disconnect(true);
-            }
+            //    client.Disconnect(true);
+            //}
 
             //displays what the license plate number was of the added vehicle
-            ViewBag.message = "Het voertuig met kentekenplaat: '" + model.LicensePlate + "' is toegevoegd!";
+            ViewBag.message = "Het voertuig met kentekenplaat: " + model.LicensePlate + " is toegevoegd!";
 
 
             return View();

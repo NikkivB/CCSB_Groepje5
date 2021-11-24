@@ -86,7 +86,7 @@ namespace CCSB_Groepje5.Controllers
                         {
                             Text = "Beste " + model.FirstName + ",\n" + "Er is zojuist een account geregistreerd bij camper-en carvan stalling Bentelo. " +
                             "U kunt inloggen met de volgende gegevens:" + "\n" + "\n" + "Email: " + model.Email + "\n" + "Wachtwoord: " + model.Password + "\n" + 
-                            "\n" + "Als deze gegevens niet kloppen of als dit email niet voor u bestemd is, kan je altijd bellen naar: 0687654321" + "\n" + 
+                            "\n" + "Als deze gegevens niet kloppen of als deze email niet voor u bestemd is, kan je altijd bellen naar: 0687654321" + "\n" + 
                             "Met vriendelijke groet," + "\n" + "CCBS"
                         };
                         using (var client = new SmtpClient())
@@ -97,8 +97,8 @@ namespace CCSB_Groepje5.Controllers
                             client.Send(message);
 
                             client.Disconnect(true);
-                        }           
-
+                        }
+                    
                     await _userManager.AddToRoleAsync(user, model.RoleName);
                     await _signInManager.SignInAsync(user, isPersistent: false);
 
