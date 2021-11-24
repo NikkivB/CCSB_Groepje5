@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CCSB_Groepje5.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211110135817_block days")]
-    partial class blockdays
+    [Migration("20211122134700_surace taken in cm")]
+    partial class suracetakenincm
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -138,6 +138,24 @@ namespace CCSB_Groepje5.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("CCSB_Groepje5.Models.BlockDays", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("EndBd")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartBd")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BlockDays");
                 });
 
             modelBuilder.Entity("CCSB_Groepje5.Models.Vehicle", b =>

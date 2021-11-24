@@ -5,14 +5,13 @@ var todayDate = (today.getMonth() + 1) + '/' + (today.getDate() + 2) + '/' + tod
 var routeURL = location.protocol + "//" + location.host;
 $(document).ready(function () {
     $("#appointmentDate").kendoDateTimePicker({
-        //format: "dd/MM/yyyy hh:mm",
+        //format: "d/M/yyyy hh:mm",
         dateInput: false,
         min: todayDate
     });
     InitializeCalendar();
-
-
 });
+
 var calendar;
 function InitializeCalendar() {
     try {
@@ -58,6 +57,7 @@ function onSubmitForm() {
         StartDate: $("#appointmentDate").val(),
         EndDate: $("#appointmentDate").val(),
     };
+
 
     $.ajax({
         url: routeURL + "/api/AppointmentApi/SaveCalendarData",

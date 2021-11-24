@@ -31,7 +31,7 @@
             <div class="form-group">
                 <label asp-for="SurfaceTaken" class="control-label"></label>
 
-                <input asp-for="SurfaceTaken" class="form-control" />
+                <input type="number" min="1" max="20000" asp-for="SurfaceTaken" class="form-control" />
                 <span asp-validation-for="SurfaceTaken" class="text-danger"></span>
             </div>
             <div class="form-group">

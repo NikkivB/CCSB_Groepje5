@@ -138,6 +138,24 @@ namespace CCSB_Groepje5.Migrations
                     b.ToTable("Appointments");
                 });
 
+            modelBuilder.Entity("CCSB_Groepje5.Models.BlockDays", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("EndBd")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartBd")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BlockDays");
+                });
+
             modelBuilder.Entity("CCSB_Groepje5.Models.Vehicle", b =>
                 {
                     b.Property<int>("Id")
@@ -160,24 +178,6 @@ namespace CCSB_Groepje5.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Vehicles");
-                });
-
-            modelBuilder.Entity("CCSB_Groepje5.Models.ViewModels.AddBlockDays", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("EndBd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("StartBd")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("blockDays");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
