@@ -1,58 +1,47 @@
 ﻿@model CCSB_Groepje5.Models.ViewModels.LoginViewModel
 @foreach (var user in ViewBag.User)
 {
-    <div class="container text-center my-4">
-        <h1 class="pb-4">
-            Gegevens
-        </h1>
-        <h4>
-            Hallo @user.FirstName
-        </h4>
+<div class="container my-4">
+    <h1 class="pb-4">
+        Gegevens
+    </h1>
+    <h4>
+        Hallo @user.FirstName
+    </h4>
 
-        <table border="0">
-            <tr>
-                <th>Voornaam</th>
-                <td>@user.FirstName</td>
-            </tr>
-            @if (user.Middlename != null)
-            {
-                <tr>
-                    <th>Tussenvoegsel</th>
-                    <td>@user.Middlename</td>
-                </tr>
-            }
-            <tr>
-                <th>Achternaam</th>
-                <td>@user.LastName</td>
-            </tr>
-            <tr>
-                <th>Telefoonnummer</th>
-                <td>@user.PhoneNumber</td>
-            </tr>
-            <tr>
-                <th>Geboortedatum</th>
-                <td>@user.Birthdate</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>@user.Email</td>
-            </tr>
-            <tr>
-                <th>Adres</th>
-                <td>@user.Adress</td>
-            </tr>
-            <tr>
-                <th>Postcode</th>
-                <td>@user.Postalcode</td>
-            </tr>
-            <tr>
-                <th>Woonplaats</th>
-                <td>@user.City</td>
-            </tr>
-            <tr>
-                <th>Bankrekening nummer</th>
-                <td>Om uw rekeningnummer in te zien moet u contact opnemen met de eigenaar.</td>
-            </tr>
-        </table>
-    </div>
+    <h6>Voornaam: @user.FirstName</h6>
+
+
+    @if (user.Middlename != null)
+    {
+
+<h6>Tussenvoegsel: @user.Middlename</h6>
+
+
+}
+
+<h6>Achternaam: @user.LastName</h6>
+
+
+<h6>Telefoonnummer: @user.PhoneNumber</h6>
+
+
+<h6>Geboortedatum: @user.Birthdate.ToShortDateString()</h6>
+
+
+<h6>Email: @user.Email</h6>
+
+
+<h6>Adres: @user.Adress</h6>
+
+
+<h6>Postcode: @user.Postalcode</h6>
+
+
+<h6>Woonplaats: @user.City</h6>
+
+
+<h6>Bankrekening nummer:</h6>
+<h6>Om uw rekeningnummer in te zien moet u contact opnemen met de eigenaar.</h6>
+</div>
 }
