@@ -18,6 +18,7 @@ namespace CCSB_Groepje5.Models
 
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<CCSB_Groepje5.Models.ViewModels.RegisterVehicleViewModel> RegisterVehicleViewModel { get; set; }
 
     }
 }

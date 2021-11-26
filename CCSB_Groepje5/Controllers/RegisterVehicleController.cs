@@ -51,6 +51,7 @@ namespace CCSB_Groepje5.Controllers
         public IActionResult VehicleList()
         {
             ViewBag.VehicleList = _IVehicleService.GetVehicleList();
+           // TempData["LicensePlate"] = creditCardInfo;
 
             return View();
         }
@@ -76,6 +77,12 @@ namespace CCSB_Groepje5.Controllers
                 ViewBag.message = "Het voertuig met kentekenplaat: '" + model.LicensePlate + "' is toegevoegd!";
             
 
+            return View();
+        }
+
+        public IActionResult EditVehicle()
+        {
+            ViewBag.VehicleNow = _db.Vehicles.Where(x => x.LicensePlate == User.Identity.Name).ToList();
             return View();
         }
     }

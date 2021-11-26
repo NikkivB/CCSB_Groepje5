@@ -11,9 +11,15 @@
         <p>selecteer een van de voertuigen om verder te gaan</p>
         <select name="VehicleId" id="VehicleId" asp-items="@(new SelectList(ViewBag.VehicleList, "Id", "LicensePlate"))" class="form-control"></select>
         <br/>
-        <input type="submit" value="Registreren" class="btn btn-primary" />
-        <input type="submit" value="aanpassen" class="btn btn-primary" />
-        <input type="submit" value="verwijderen" class="btn btn-primary" />
+        <ul>
+            <li>
+                <a id="registerVehicleLink" class="nav-link text-black" asp-action="Index" asp-controller="RegisterVehicle">Registreren</a>
+            </li>
+            <li>
+                <a id="editVehicleLink" class="nav-link text-black" asp-action="EditVehicle" asp-controller="RegisterVehicle">Aanpassen</a>
+             </li>
+        </ul>
+        <br>
         <br/>
     </div>
 </div>
