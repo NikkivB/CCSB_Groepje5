@@ -46,21 +46,35 @@ namespace CCSB_Groepje5.Controllers
             return View();
         }
 
-       
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(RegisterVehicleViewModel model)
         {
             ViewBag.CustomerList = _IVehicleService.GetCustomerList();
-            /*
-             Rabia's Kenteken maken - bezig!
-            
-            if (model.LicensePlate = 3 )
+
+            // Value inside the if statement (waarde aangeven)
+            // Value Uppercase is set, only uppercases
+            if (model.LicensePlate.ToUpper().Contains('A') || model.LicensePlate.ToUpper().Contains('E') || model.LicensePlate.ToUpper().Contains('U') || model.LicensePlate.ToUpper().Contains('O') || model.LicensePlate.ToUpper().Contains('I'))
             {
-                print: model.LicensePlate
-            };
-            */
-           //creating a new vehicle based on the input in the RegisterVehicle/Index.
+                ViewBag.message = "Onjuist: Voeg geen klinkers toe aan Kentekenplaat.";
+            }
+            else if (model.LicensePlate.IndexOf("-") == 0 || model.LicensePlate.EndsWith("-"))
+    {
+                ViewBag.message = "Onjuist: Geen streepjes voor/achter/naast elkaar in";
+            }
+            else if (model.LicensePlate != model.LicensePlate.ToUpper())
+            {
+                ViewBag.message = "Onjuist: Geen hoofdletters";
+            }
+            else if (model.LicensePlate.Length != 8)
+            {
+                ViewBag.message = "Onjuist: Je hebt geen 8 tekens";
+            }
+            else
+            {
+
+                //creating a new vehicle based on the input in the RegisterVehicle/Index.
                 Vehicle v = new Vehicle();
                 v.LicensePlate = model.LicensePlate;
                 v.VehicleType = model.VehicleType;
@@ -69,10 +83,12 @@ namespace CCSB_Groepje5.Controllers
 
                 _db.Vehicles.Add(v);
                 _db.SaveChanges();
-            
-            //displays what the license plate number was of the added vehicle
+
+                //displays what the license plate number was of the added vehicle
                 ViewBag.message = "Het voertuig met kentekenplaat: '" + model.LicensePlate + "' is toegevoegd!";
-            
+
+            }
+
 
             return View();
         }
