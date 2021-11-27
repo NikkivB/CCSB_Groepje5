@@ -53,6 +53,7 @@ namespace CCSB_Groepje5.Models.ViewModels
         //telefoonnummer
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         [DisplayName("Telefoonnummer")]
+        [RegularExpression("[0][6]\\s[0-9]{8}", ErrorMessage = "Voer een geldige telefoonnummer in.")]
         public string PhoneNumber { get; set; }
 
         //bankrekeningnummer

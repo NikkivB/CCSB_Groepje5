@@ -5,14 +5,22 @@ var todayDate = (today.getMonth() + 1) + '/' + (today.getDate() + 2) + '/' + tod
 var routeURL = location.protocol + "//" + location.host;
 $(document).ready(function () {
     $("#appointmentDate").kendoDateTimePicker({
-        value: todayDate,
         dateInput: false,
         min: todayDate,
+        //format: "d/M/yyyy hh:mm",
+        //disableDates: function (date) {
+        //    var disabled = [3, 7, 15, 8];
+        //    if (date && disabled.indexOf(date.getDate()) > -1) {
+        //        return true;
+        //    } else {
+        //        return false;
+        //    }
+
+        //}
     });
     InitializeCalendar();
-
-
 });
+
 var calendar;
 function InitializeCalendar() {
     try {
@@ -58,6 +66,7 @@ function onSubmitForm() {
         StartDate: $("#appointmentDate").val(),
         EndDate: $("#appointmentDate").val(),
     };
+
 
     $.ajax({
         url: routeURL + "/api/AppointmentApi/SaveCalendarData",

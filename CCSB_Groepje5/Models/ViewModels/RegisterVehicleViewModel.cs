@@ -24,7 +24,7 @@ namespace CCSB_Groepje5.Models.ViewModels
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public string VehicleType { get; set; }
 
-        [DisplayName("Lengte voertuig (in m)")]
+        [DisplayName("Lengte voertuig (in cm)")]
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         public int SurfaceTaken { get; set; }
     }
