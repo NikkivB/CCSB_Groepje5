@@ -62,7 +62,24 @@ namespace CCSB_Groepje5.Controllers
         {
             ViewBag.CustomerList = _IVehicleService.GetCustomerList();
 
-           //creating a new vehicle based on the input in the RegisterVehicle/Index.
+            // Value inside the if statement (waarde aangeven)
+            // Value Uppercase is set, only uppercases
+            if (model.LicensePlate.ToUpper().Contains('A') || model.LicensePlate.ToUpper().Contains('E') || model.LicensePlate.ToUpper().Contains('U') || model.LicensePlate.ToUpper().Contains('O') || model.LicensePlate.ToUpper().Contains('I'))
+            {
+                ViewBag.message = "Onjuist: Voeg geen klinkers toe aan Kentekenplaat.";
+            }
+            else if (model.LicensePlate.IndexOf("-") == 0 || model.LicensePlate.EndsWith("-"))
+    {
+                ViewBag.message = "Onjuist: Geen streepjes voor/achter/naast elkaar in";
+            }
+            else if (model.LicensePlate != model.LicensePlate.ToUpper())
+            {
+                ViewBag.message = "Onjuist: Geen hoofdletters";
+            }
+            else
+            {
+
+                //creating a new vehicle based on the input in the RegisterVehicle/Index.
                 Vehicle v = new Vehicle();
                 v.LicensePlate = model.LicensePlate;
                 v.VehicleType = model.VehicleType;
