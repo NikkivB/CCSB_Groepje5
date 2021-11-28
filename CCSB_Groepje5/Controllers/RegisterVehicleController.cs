@@ -48,13 +48,6 @@ namespace CCSB_Groepje5.Controllers
             return View();
         }
 
-        public IActionResult VehicleList()
-        {
-            ViewBag.VehicleList = _IVehicleService.GetVehicleList();
-
-            return View();
-        }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -76,6 +69,10 @@ namespace CCSB_Groepje5.Controllers
             {
                 ViewBag.message = "Onjuist: Geen hoofdletters";
             }
+            else if (model.LicensePlate.Length != 8)
+            {
+                ViewBag.message = "Onjuist: Je hebt geen 8 tekens";
+            }
             else
             {
 
@@ -88,10 +85,12 @@ namespace CCSB_Groepje5.Controllers
 
                 _db.Vehicles.Add(v);
                 _db.SaveChanges();
-            
-            //displays what the license plate number was of the added vehicle
+
+                //displays what the license plate number was of the added vehicle
                 ViewBag.message = "Het voertuig met kentekenplaat: '" + model.LicensePlate + "' is toegevoegd!";
-            
+
+            }
+
 
             return View();
         }
